@@ -14,18 +14,22 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     RoleRepository roleRepository;
 
     public void run(String...args){
-        User bart = new User("bart", "bart", true);
-        Role bartRole = new Role("bart", "ROLE_USER");
+        User admin = new User("admin", "admin", true);
+        Role adminRole = new Role("admin", "ROLE_ADMIN");
 
         User user = new User("user", "user", true);
         Role userRole = new Role("user", "ROLE_USER");
+        user.setAddress("1234 xxxxx st");
+        user.setEmail("user@domain.com");
+        user.setState("MD");
+        user.setCity("Montgomery");
+        user.setPhone("555-555-5555");
 
-        userRepository.save(bart);
-        roleRepository.save(bartRole);
+        userRepository.save(admin);
+        roleRepository.save(adminRole);
 
         userRepository.save(user);
         roleRepository.save(userRole);
     }
 
-    //big picture = defining own schema (user and role classes) and with this new schema we are creating our own specified users/roles
 }

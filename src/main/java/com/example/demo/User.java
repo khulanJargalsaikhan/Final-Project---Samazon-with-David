@@ -6,13 +6,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_table")
 public class User {
 
-    @Id //states that this is the primary key           strategy = GenerationType.AUTO means it will generate automatically. When one element with the id is deleted it is replaced with the next created element.
-    @GeneratedValue(strategy = GenerationType.AUTO) //states how we are going to generate the id.
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name = "username")
@@ -39,6 +40,10 @@ public class User {
 
     @Column(name = "enabled")
     private boolean enabled;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Order> orders;
+
 
     public User() {
     }
@@ -88,5 +93,45 @@ public class User {
 
     public void clearPassword(){
         this.password = "";
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
