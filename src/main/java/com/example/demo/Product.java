@@ -23,13 +23,16 @@ public class Product {
     @NotNull
     private String description;
 
+    @NotEmpty
+    @NotNull
+    private String photo;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<OrdersAndProducts> orders;
+    private Set<OrdersAndProducts> carts;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
-
 
     public long getId() {
         return id;
@@ -61,5 +64,29 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<OrdersAndProducts> getOrders() {
+        return carts;
+    }
+
+    public void setOrders(Set<OrdersAndProducts> carts) {
+        this.carts = carts;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

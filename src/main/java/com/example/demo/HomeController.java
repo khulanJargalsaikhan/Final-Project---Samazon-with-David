@@ -22,10 +22,14 @@ public class HomeController {
     RoleRepository roleRepository;
 
     @Autowired
+    ProductRepository productRepository;
+
+    @Autowired
     CloudinaryConfig cloudc;
 
     @RequestMapping("/")
-    public String index(){
+    public String index(Model model){
+        model.addAttribute("products", productRepository.findAll());
         return "index";
     }
 

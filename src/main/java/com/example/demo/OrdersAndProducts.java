@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class OrdersAndProducts {
@@ -15,8 +14,8 @@ public class OrdersAndProducts {
     private Product product;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
     public long getId() {
         return id;
@@ -34,11 +33,13 @@ public class OrdersAndProducts {
         this.product = product;
     }
 
-    public Order getOrder() {
-        return order;
+    public Cart getOrder() {
+        return cart;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrder(Cart cart) {
+        this.cart = cart;
     }
+
+
 }

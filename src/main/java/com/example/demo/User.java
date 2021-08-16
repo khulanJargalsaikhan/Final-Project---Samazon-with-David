@@ -3,8 +3,6 @@ package com.example.demo;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
@@ -42,7 +40,7 @@ public class User {
     private boolean enabled;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Order> orders;
+    private Set<Cart> carts;
 
 
     public User() {
@@ -133,5 +131,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Set<Cart> getOrders() {
+        return carts;
+    }
+
+    public void setOrders(Set<Cart> carts) {
+        this.carts = carts;
     }
 }
