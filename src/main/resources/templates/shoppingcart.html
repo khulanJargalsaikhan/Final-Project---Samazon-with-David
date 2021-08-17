@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<!--nav bar from base.html-->
+<div th:replace="base :: navlinks"></div>
+
+<div class="container col-lg-10">
+
+    <div th:each="cart : ${carts}" class="col align-self-start">
+        <div>
+            <h2 th:inline="text">Cart: [[${cart.id}]], [[${cart.date}]] </h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <p>Products: </p>
+            <div th:each="product : ${cart.products}" class="card" style="width: 18rem;">
+                <img th:src="${product.photo}" width="200" height="200" class="card-img-top" alt="player-photo">
+                <div class="card-body">
+                    <h5 th:inline="text" class="card-title">[[${product.name}]] [[${product.price}]]</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+</html>

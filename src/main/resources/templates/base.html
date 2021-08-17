@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
@@ -44,7 +44,7 @@
                 </form>
 
                 <div class="nav-item" style="text-align: right">
-                    <p class="nav-link">Hello, Username</p>
+                    <p class="nav-link">Hello, <span sec:authentication="name"> </span></p>
                     <a class="nav-link" href="#" >User Info, Order History</a>
                 </div>
 
