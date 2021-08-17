@@ -1,0 +1,28 @@
+
+
+
+h1, h2, h3, h4 {
+    font-family: 'Sacramento', cursive;
+    text-align: center;
+    padding-top: 1.5rem;
+    color: #E93B81;
+}
+
+p {
+    font-family: 'Montserrat'
+}
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

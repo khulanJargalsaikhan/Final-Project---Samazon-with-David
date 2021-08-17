@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ari Floral Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@300&family=Sacramento&display=swap" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet" >
+
+</head>
+<body>
+<!--nav bar from base.html-->
+<div th:replace="base :: navlinks"></div>
+
+
+
+<div class="container-md container">
+    <img th:src="@{../images/bg.jpg}" class="card-img" alt="...">
+    <div class="centered">
+        <h3 class="display-3" style="color: floralwhite">do small things with great Love...</h3>
+    </div>
+</div>
+
+
+
+<div class="container-md">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-1">Ari Floral Studio</h1>
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzlDREQwNTsiIGQ9Ik0xMTAuNDU0LDMyMS4zN2MxLjcxMS0xLjU2Nyw0LjMxNy0xLjcxNCw2LjIwMS0wLjM2YzIyLjgyNCwxNi40MSwzNS42ODQsNjcuMTg2LDIzLjQzNCw5Mi40NzYNCgljLTEuMDExLDIuMDg4LTMuMzczLDMuMTk5LTUuNjI0LDIuNjM2QzkxLjU2OCw0MDUuMzg4LDc3Ljg0MSwzNTEuMjQxLDExMC40NTQsMzIxLjM3eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6Izk0QzYwOTsiIGQ9Ik0xMjQuMzAyLDMyOC4yMjJjLTIuNDY2LTIuOTAxLTUuMDM2LTUuMzM0LTcuNjQ4LTcuMjEyYy0xLjg4NC0xLjM1NC00LjQ5LTEuMjA3LTYuMjAxLDAuMzYNCgljLTMyLjYwOCwyOS44NjYtMTguODkyLDg0LjAxNywyNC4wMSw5NC43NTJjMi4yNTEsMC41NjMsNC42MTItMC41NDgsNS42MjQtMi42MzZjMC40MDctMC44NDEsMC43ODEtMS43MzIsMS4xMzgtMi42NDgNCglDMTExLjQzOCwzOTQuMzc4LDEwMy4zMDIsMzU1LjIwNCwxMjQuMzAyLDMyOC4yMjJ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojODNBQTJFOyIgZD0iTTMzNy42MjUsMjEyLjMxNGMyLjM3LTMuNDQsMS41MDEtOC4xNDktMS45MzktMTAuNTE5Yy0zLjQ0LTIuMzY5LTguMTUtMS41MDEtMTAuNTE5LDEuOTM5DQoJYy0xOS40OTMsMjguMzA0LTQzLjQ5Miw2MC4wNzYtNzIuMTQ3LDkyLjg1M2wtMi41NDItMzAuODc1Yy0wLjM0My00LjE2My00LTcuMjYxLTguMTU4LTYuOTE3Yy00LjE2MywwLjM0My03LjI2LDMuOTk1LTYuOTE3LDguMTU4DQoJbDMuNzIxLDQ1LjE5NkMxNzIuMTc2LDM4NS41NDYsOTMuNTU4LDQ0OS40NDQsNC4wNTMsNDk2LjM3Yy0zLjY5OSwxLjk0LTUuMTI3LDYuNTEyLTMuMTg3LDEwLjIxMQ0KCWMxLjM1MiwyLjU3OSwzLjk4Myw0LjA1NCw2LjcwNSw0LjA1NGMxLjE4MywwLDIuMzg1LTAuMjc5LDMuNTA1LTAuODY3YzYzLjg0LTMzLjQ3LDEyNC43ODQtNzYuOTYyLDE4MS41MTEtMTI5LjQ3OQ0KCWM1Ljg5MS0yLjAzMSwzMi4xNS0xMC4yMjUsNjguNjcxLTguODE5YzQuMTU2LDAuMTY3LDcuNjg5LTMuMDksNy44NS03LjI2NmMwLjE2MS00LjE3NC0zLjA5Mi03LjY4OS03LjI2Ny03Ljg0OQ0KCWMtMTguNjc4LTAuNzIxLTM0LjgyNCwwLjg5LTQ3LjM4NCwzLjAzNkMyNTkuNjg4LDMxNC43ODUsMzAxLjEyNiwyNjUuMzEsMzM3LjYyNSwyMTIuMzE0eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6IzlDREQwNTsiIGQ9Ik0zMjkuNTgsNDEzLjcxNWMzMC4wNTUsMS44MjcsNTcuMTg4LTEzLjQxMyw3MS45OTMtMzcuMzQzYzEuNzM4LTIuODEsMS4yNTMtNi40OTUtMS4xNDItOC43NzENCgljLTEzLjA0LTEyLjM5NC0zNy43OC0yMS42NzUtNjYuNjI1LTIzLjQyOHMtNTQuNTI3LDQuNDY0LTY4Ljk3MiwxNS4xODdjLTIuNjUzLDEuOTY5LTMuNTgxLDUuNTY4LTIuMTk2LDguNTY4DQoJQzI3NC40MzgsMzkzLjQ3NSwyOTkuNTI1LDQxMS44ODgsMzI5LjU4LDQxMy43MTV6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTRDNjA5OyIgZD0iTTI4Mi44MDgsMzY3LjkyOGMtMS4zODUtMi45OTktMC40NTctNi41OTgsMi4xOTYtOC41NjhjMTEuMDY3LTguMjE2LDI4LjczNC0xMy43ODEsNDkuMzYxLTE1LjE0OQ0KCWMtMC4xODctMC4wMTItMC4zNzItMC4wMjctMC41NTktMC4wMzljLTI4Ljg0NS0xLjc1My01NC41MjcsNC40NjQtNjguOTcyLDE1LjE4OGMtMi42NTMsMS45NjktMy41ODEsNS41NjgtMi4xOTYsOC41NjgNCgljMTEuNzk5LDI1LjU0NywzNi44ODYsNDMuOTYsNjYuOTQxLDQ1Ljc4N2M1LjA2MywwLjMwOCwxMC4wNCwwLjEyLDE0Ljg5Mi0wLjUwMUMzMTYuNzc1LDQwOS42ODEsMjkzLjkwOSwzOTEuOTY0LDI4Mi44MDgsMzY3LjkyOHoiDQoJLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5Q0REMDU7IiBkPSJNMzcwLjY3NywyMzEuOTQ1Yy04Ljk4NC0yLjQxMS0xNy40NzktNy4xMzgtMjQuNTE2LTE0LjIwNWMtNS4wODUtNS4xMDYtOC43NDItMTAuOTgxLTExLjE0My0xNy4yNDINCgljLTYuNjQ1LDAuOTAyLTEzLjU1NCwwLjUxNi0yMC40NzUtMS40OTFjLTkuNTc4LTIuNzc4LTE3LjgwNS03Ljk1OS0yNC4yMzQtMTQuNjhjLTEyLjIxNiwxLjAxLTIyLjYxMSw0LjU5My0yOC44NTksOS42NDINCgljLTEuNDE2LDEuMTQ1LTEuODM5LDMuMTQ5LTAuOTk5LDQuNzcyYzcuMTU3LDEzLjgyMSwyMS40NzgsMjMuNDEsMzguMTMxLDIzLjc0NWMxMS41NDgsMC4yMzIsMjIuMTA5LTQuMDM1LDMwLjAzMS0xMS4xNzgNCgljLTIuNDYxLDEwLjM3OS0xLjEzLDIxLjY5Miw0LjYyMSwzMS43MDljOC4yOTMsMTQuNDQ1LDIzLjU4MywyMi40MDEsMzkuMTQyLDIyLjAzOWMxLjgyNi0wLjA0MiwzLjM4Mi0xLjM3NiwzLjcwNS0zLjE2OA0KCUMzNzcuNTA5LDI1My45ODIsMzc1LjY1OCwyNDMuMTQ0LDM3MC42NzcsMjMxLjk0NXoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5NEM2MDk7IiBkPSJNMjkwLjEyOSwyMTMuMDQ4Yy0wLjg0LTEuNjIyLTAuNDE3LTMuNjI3LDAuOTk5LTQuNzcyYzUuNDE0LTQuMzc1LDEzLjk0My03LjY0NiwyNC4wNy05LjA5OQ0KCWMtMC4yMTktMC4wNi0wLjQzNy0wLjEwOC0wLjY1NS0wLjE3MWMtOS41NzgtMi43NzgtMTcuODA1LTcuOTU5LTI0LjIzNC0xNC42OGMtMTIuMjE2LDEuMDEtMjIuNjExLDQuNTkzLTI4Ljg1OSw5LjY0Mg0KCWMtMS40MTYsMS4xNDUtMS44MzksMy4xNDktMC45OTksNC43NzJjNi44NzQsMTMuMjc0LDIwLjM2MywyMi42MjEsMzYuMTc0LDIzLjYzOEMyOTQuMDc3LDIxOS41NzEsMjkxLjg4NSwyMTYuNDM5LDI5MC4xMjksMjEzLjA0OHoNCgkiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGMzdENzk7IiBkPSJNNTA4LjIxMiw5OS44NDhjLTIuNjY2LTQuNTgxLTI3LjMyNC00NC44NDMtNzEuNTU4LTQ4LjIwNmMtNC4yNjgtMC4yMjMtOC41OC0wLjE2NC0xMi44MTYsMC4xNzYNCglsLTEuMTQ4LDAuMDkybDAuNDcxLDEuMDUxYzcuMDA1LDE1LjY0OCw5LjAwMiwzMS40NDcsNy4xMDYsNDguMzA3bDAuODc3LDAuMDRjMTEuNzgyLDAuNTM4LDIzLjY3OSwzLjUxMywzNS4zNjIsOC44NDFsMC4zNjcsMC4xNjgNCglsMC4zNTUtMC4xODhjMTAuODQxLTUuNzI4LDIyLjQ0NS02Ljc4MywzNS40NzctMy4yMjVDNTA2LjkyNywxMDguMDU4LDUxMC4zOTcsMTAzLjU5OSw1MDguMjEyLDk5Ljg0OHoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNEODY2NjY7IiBkPSJNNDUyLjQ3Niw1NC41NDFjLTQuOTYtMS40NTctMTAuMjMzLTIuNDc0LTE1LjgyMy0yLjg5OWMtNC4yNjgtMC4yMjMtOC41OC0wLjE2NC0xMi44MTYsMC4xNzYNCglsLTEuMTQ4LDAuMDkybDAuNDcxLDEuMDUxYzcuMDA1LDE1LjY0OCw5LjAwMiwzMS40NDcsNy4xMDYsNDguMzA3bDAuODc3LDAuMDRjOS4zMzQsMC40MjYsMTguNzQsMi40MDcsMjguMDU1LDUuODUxDQoJQzQ2MS4wNCw4OC44NTIsNDU4Ljc4NCw3MS4xOSw0NTIuNDc2LDU0LjU0MXoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGMzdENzk7IiBkPSJNNDE4LjY0Miw0MC45NmMtMjQuMTktMzcuMTY5LTcxLjM0Ni0zOS40NTUtNzYuNjQzLTM5LjU5M2MtNC4zNC0wLjExNC02LjU4Miw1LjA3MS0zLjU0Myw4LjIyDQoJYzkuMzgsOS43MjEsMTQuMDI5LDIwLjQwNiwxNC4yMTIsMzIuNjY1bDAuMDA1LDAuNDAybDAuMzI0LDAuMjQyYzEzLjYzNywxMC4xOTQsMjMuNzE0LDIyLjU1OCwyOS45NDQsMzYuNzMxDQoJYzQuMTk4LDEwLjIwMSw2LjM3LDE5LjQ2OCw3LjU0NSwyOS40MTFsMC45OTYtMC40MDJjOC45NjItMy42MTcsMTguNTI1LTYuMDA4LDI4LjQwNS03LjEwNWMzLjY4OC0wLjMyMiw3LjQ4MS0wLjM5NywxMS4yNzQtMC4yMjMNCglsMC43NjIsMC4wMzVDNDM0LjM3OCw3OS40OTgsNDMwLjE3MSw1OS42MjMsNDE4LjY0Miw0MC45NnoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNEODY2NjY7IiBkPSJNNDEwLjUwOCwxMDIuOTk2YzEuOTEzLTI0LjExNS0zLjU4Ny00Ni44MzMtMTYuNDEzLTY3LjU5Ng0KCWMtOS41OTctMTQuNzQ2LTIyLjIwNy0yNC44OTgtMzUuMDE3LTMxLjkxNUMzNTAuMywxLjcxLDM0My43OCwxLjQxNCwzNDEuOTk5LDEuMzY3Yy00LjM0LTAuMTE0LTYuNTgyLDUuMDcxLTMuNTQzLDguMjINCgljOS4zOCw5LjcyMSwxNC4wMjksMjAuNDA2LDE0LjIxMiwzMi42NjVsMC4wMDUsMC40MDJsMC4zMjQsMC4yNDJjMTMuNjM3LDEwLjE5NCwyMy43MTQsMjIuNTU4LDI5Ljk0NCwzNi43MzENCgljNC4xMTQsOS45OTcsNi4zNSwxOS4zMDcsNy41MTYsMjkuMTY3YzAuMzM5LTAuMDUxLDAuNjc2LTAuMTA1LDEuMDE2LTAuMTU0bDAuMDA5LTAuMDAzDQoJQzM5Ny41NzUsMTA2LjE3OCw0MDMuOTQ5LDEwNC4zLDQxMC41MDgsMTAyLjk5NnoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGMzdENzk7IiBkPSJNMzQzLjgsMTQ2LjY3NmMxMy4wMTgtMTcuNzI2LDI5LjA2LTMwLjUyNCw0Ny42ODItMzguMDM5bDAuNTc2LTAuMjMyDQoJYy0xLjE2MS05Ljg1Ny0zLjQ5LTE5LjM5NS03LjYxMS0yOS40MDhjLTIwLjY5NC00Ny4wODQtNzQuMzE3LTU4LjU3Ny04MC4zNjMtNTkuNzMxYy00Ljg1My0wLjkyNy04LjMxLDQuNDcxLTUuNDg5LDguNTQ2DQoJYzIxLjUzMywzMS4xNDksNy44OTUsNTkuMzgzLTE0LjYzMyw5MC4wMDlsMC4wNzEsMC4wMjljLTE2Ljk1MywyNi40OTctNy44NjMsNjEuMjM3LDE4LjUxMyw3Ni44NjUNCgljMy45MzIsMi4zMyw4LjIxOSw0LjIwNywxMi44MDYsNS41MzdjNi43NTcsMS45NTksMTMuNzUyLDIuNDY5LDIwLjc4NywxLjUxNGwxLjAxNy0wLjEzOGwtMC4zNjctMC45NTkNCglDMzMwLjMyNywxODMuODE3LDMzMy4wOCwxNjIuNjI1LDM0My44LDE0Ni42NzZ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojRDg2NjY2OyIgZD0iTTMxMy45MSwxMzEuNzAybC0wLjA3MS0wLjAyOWMyMi44MjktMzEuMzkyLDM4LjU5Ny02MS43NjUsMTcuMTYxLTk0LjI3Ng0KCWMtMS4yODYtMS45NDgtMS4yNjctNC40MTksMC4wNS02LjQ0OWMwLjUyOC0wLjgxNCwxLjIxMi0xLjQ1MiwxLjk4My0xLjkwOGMtMTQuMzA4LTYuNzI5LTI2LjI3Ny05LjI2Ni0yOC45NDktOS43NzYNCgljLTQuODUzLTAuOTI3LTguMzEsNC40NzEtNS40ODksOC41NDZjMjEuNTMzLDMxLjE0OSw3Ljg5NSw1OS4zODMtMTQuNjMzLDkwLjAwOWwwLjA3MSwwLjAyOQ0KCWMtMTYuOTUzLDI2LjQ5Ny03Ljg2Myw2MS4yMzcsMTguNTEzLDc2Ljg2NWMzLjkzMiwyLjMzLDguMjE5LDQuMjA3LDEyLjgwNiw1LjUzN2MwLjkyOSwwLjI2OSwxLjg2MywwLjUwNSwyLjgwMSwwLjcyDQoJQzMwMS43MTUsMTgyLjMxOCwyOTkuNjcxLDE1NC4wNDksMzEzLjkxLDEzMS43MDJ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojRjM3RDc5OyIgZD0iTTUxMC43MjYsMTQxLjdjLTMuOTE3LTQuNzQ3LTM5Ljc1LTQ2LjI2LTkxLjAwOS00MS43OTJjLTIxLjY2NCwyLjQwNS01Mi42NTMsMTIuMzA4LTc3LjI3Nyw0NS44NTYNCgljLTEzLjM5MiwxOS45MjItMTYuNDk1LDUyLjI3Miw0LjEzMiw3Mi45ODZjMy4zNzEsMy4zODUsNy4wNzUsNi4yNDMsMTEuMDA4LDguNTczYzI2LjMyNSwxNS41OTcsNjEuMTg2LDYuOTYxLDc2LjMwOS0yMC42ODMNCglsMC4wNzcsMC4wNjJjMTUuMzA3LTM0LjM5OSwzNC45NjEtNTkuOTMzLDcxLjktNTYuMDgyQzUxMC44MDIsMTUxLjEzNiw1MTMuODY3LDE0NS41MDcsNTEwLjcyNiwxNDEuN3oiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNEODY2NjY7IiBkPSJNMzcwLjkwMywxNjIuNjI3YzI3LjkwNC0zOC4wMTcsNzUuMzA3LTU3Ljc1MSwxMjEuMTQ0LTM4Ljc0Mw0KCWMtMTYuMDcyLTEyLjYxMy00MS4zODEtMjYuNjc0LTcyLjMyOS0yMy45NzdjLTIxLjY2NCwyLjQwNS01Mi42NTMsMTIuMzA4LTc3LjI3Nyw0NS44NTZjLTEzLjM5MiwxOS45MjItMTYuNDk1LDUyLjI3Miw0LjEzMiw3Mi45ODYNCgljMy4zNzEsMy4zODUsNy4wNzUsNi4yNDMsMTEuMDA4LDguNTczYzQuODg1LDIuODk0LDEwLjEyNSw0Ljk2NCwxNS41MTUsNi4yMjhDMzU0LjYyNCwyMTIuODAyLDM1Ny45NDcsMTgxLjg5OSwzNzAuOTAzLDE2Mi42Mjd6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg=="
+                 alt="flower-icon" width="5%" style="display:block; margin: 1rem auto"/>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-md">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img th:src="@{../images/flower-1.jpg}" class="d-block w-100 h-25" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{../images/flower-2.jpg}" class="d-block w-100 h-25" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{../images/flower-3.jpg}" class="d-block w-100 h-25" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
+<div>
+    <h3 class="display-3">Send Flowers & Exclusive Gifts</h3>
+</div>
+
+<div class="container-md">
+    <div class="row row-cols-2 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card">
+                <img th:src="@{../images/flower1.jpg}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">$49.99</p>
+                    <h5 class="card-title">Sunshine</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img th:src="@{../images/flower2.jpg}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img th:src="@{../images/hb2.jpg}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img th:src="@{../images/heartbox_open.jpg}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img th:src="@{../images/flower-4.jpg}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img th:src="@{../images/flower-5.jpg}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-md">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzlDREQwNTsiIGQ9Ik0xMTAuNDU0LDMyMS4zN2MxLjcxMS0xLjU2Nyw0LjMxNy0xLjcxNCw2LjIwMS0wLjM2YzIyLjgyNCwxNi40MSwzNS42ODQsNjcuMTg2LDIzLjQzNCw5Mi40NzYNCgljLTEuMDExLDIuMDg4LTMuMzczLDMuMTk5LTUuNjI0LDIuNjM2QzkxLjU2OCw0MDUuMzg4LDc3Ljg0MSwzNTEuMjQxLDExMC40NTQsMzIxLjM3eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6Izk0QzYwOTsiIGQ9Ik0xMjQuMzAyLDMyOC4yMjJjLTIuNDY2LTIuOTAxLTUuMDM2LTUuMzM0LTcuNjQ4LTcuMjEyYy0xLjg4NC0xLjM1NC00LjQ5LTEuMjA3LTYuMjAxLDAuMzYNCgljLTMyLjYwOCwyOS44NjYtMTguODkyLDg0LjAxNywyNC4wMSw5NC43NTJjMi4yNTEsMC41NjMsNC42MTItMC41NDgsNS42MjQtMi42MzZjMC40MDctMC44NDEsMC43ODEtMS43MzIsMS4xMzgtMi42NDgNCglDMTExLjQzOCwzOTQuMzc4LDEwMy4zMDIsMzU1LjIwNCwxMjQuMzAyLDMyOC4yMjJ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojODNBQTJFOyIgZD0iTTMzNy42MjUsMjEyLjMxNGMyLjM3LTMuNDQsMS41MDEtOC4xNDktMS45MzktMTAuNTE5Yy0zLjQ0LTIuMzY5LTguMTUtMS41MDEtMTAuNTE5LDEuOTM5DQoJYy0xOS40OTMsMjguMzA0LTQzLjQ5Miw2MC4wNzYtNzIuMTQ3LDkyLjg1M2wtMi41NDItMzAuODc1Yy0wLjM0My00LjE2My00LTcuMjYxLTguMTU4LTYuOTE3Yy00LjE2MywwLjM0My03LjI2LDMuOTk1LTYuOTE3LDguMTU4DQoJbDMuNzIxLDQ1LjE5NkMxNzIuMTc2LDM4NS41NDYsOTMuNTU4LDQ0OS40NDQsNC4wNTMsNDk2LjM3Yy0zLjY5OSwxLjk0LTUuMTI3LDYuNTEyLTMuMTg3LDEwLjIxMQ0KCWMxLjM1MiwyLjU3OSwzLjk4Myw0LjA1NCw2LjcwNSw0LjA1NGMxLjE4MywwLDIuMzg1LTAuMjc5LDMuNTA1LTAuODY3YzYzLjg0LTMzLjQ3LDEyNC43ODQtNzYuOTYyLDE4MS41MTEtMTI5LjQ3OQ0KCWM1Ljg5MS0yLjAzMSwzMi4xNS0xMC4yMjUsNjguNjcxLTguODE5YzQuMTU2LDAuMTY3LDcuNjg5LTMuMDksNy44NS03LjI2NmMwLjE2MS00LjE3NC0zLjA5Mi03LjY4OS03LjI2Ny03Ljg0OQ0KCWMtMTguNjc4LTAuNzIxLTM0LjgyNCwwLjg5LTQ3LjM4NCwzLjAzNkMyNTkuNjg4LDMxNC43ODUsMzAxLjEyNiwyNjUuMzEsMzM3LjYyNSwyMTIuMzE0eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6IzlDREQwNTsiIGQ9Ik0zMjkuNTgsNDEzLjcxNWMzMC4wNTUsMS44MjcsNTcuMTg4LTEzLjQxMyw3MS45OTMtMzcuMzQzYzEuNzM4LTIuODEsMS4yNTMtNi40OTUtMS4xNDItOC43NzENCgljLTEzLjA0LTEyLjM5NC0zNy43OC0yMS42NzUtNjYuNjI1LTIzLjQyOHMtNTQuNTI3LDQuNDY0LTY4Ljk3MiwxNS4xODdjLTIuNjUzLDEuOTY5LTMuNTgxLDUuNTY4LTIuMTk2LDguNTY4DQoJQzI3NC40MzgsMzkzLjQ3NSwyOTkuNTI1LDQxMS44ODgsMzI5LjU4LDQxMy43MTV6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTRDNjA5OyIgZD0iTTI4Mi44MDgsMzY3LjkyOGMtMS4zODUtMi45OTktMC40NTctNi41OTgsMi4xOTYtOC41NjhjMTEuMDY3LTguMjE2LDI4LjczNC0xMy43ODEsNDkuMzYxLTE1LjE0OQ0KCWMtMC4xODctMC4wMTItMC4zNzItMC4wMjctMC41NTktMC4wMzljLTI4Ljg0NS0xLjc1My01NC41MjcsNC40NjQtNjguOTcyLDE1LjE4OGMtMi42NTMsMS45NjktMy41ODEsNS41NjgtMi4xOTYsOC41NjgNCgljMTEuNzk5LDI1LjU0NywzNi44ODYsNDMuOTYsNjYuOTQxLDQ1Ljc4N2M1LjA2MywwLjMwOCwxMC4wNCwwLjEyLDE0Ljg5Mi0wLjUwMUMzMTYuNzc1LDQwOS42ODEsMjkzLjkwOSwzOTEuOTY0LDI4Mi44MDgsMzY3LjkyOHoiDQoJLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5Q0REMDU7IiBkPSJNMzcwLjY3NywyMzEuOTQ1Yy04Ljk4NC0yLjQxMS0xNy40NzktNy4xMzgtMjQuNTE2LTE0LjIwNWMtNS4wODUtNS4xMDYtOC43NDItMTAuOTgxLTExLjE0My0xNy4yNDINCgljLTYuNjQ1LDAuOTAyLTEzLjU1NCwwLjUxNi0yMC40NzUtMS40OTFjLTkuNTc4LTIuNzc4LTE3LjgwNS03Ljk1OS0yNC4yMzQtMTQuNjhjLTEyLjIxNiwxLjAxLTIyLjYxMSw0LjU5My0yOC44NTksOS42NDINCgljLTEuNDE2LDEuMTQ1LTEuODM5LDMuMTQ5LTAuOTk5LDQuNzcyYzcuMTU3LDEzLjgyMSwyMS40NzgsMjMuNDEsMzguMTMxLDIzLjc0NWMxMS41NDgsMC4yMzIsMjIuMTA5LTQuMDM1LDMwLjAzMS0xMS4xNzgNCgljLTIuNDYxLDEwLjM3OS0xLjEzLDIxLjY5Miw0LjYyMSwzMS43MDljOC4yOTMsMTQuNDQ1LDIzLjU4MywyMi40MDEsMzkuMTQyLDIyLjAzOWMxLjgyNi0wLjA0MiwzLjM4Mi0xLjM3NiwzLjcwNS0zLjE2OA0KCUMzNzcuNTA5LDI1My45ODIsMzc1LjY1OCwyNDMuMTQ0LDM3MC42NzcsMjMxLjk0NXoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5NEM2MDk7IiBkPSJNMjkwLjEyOSwyMTMuMDQ4Yy0wLjg0LTEuNjIyLTAuNDE3LTMuNjI3LDAuOTk5LTQuNzcyYzUuNDE0LTQuMzc1LDEzLjk0My03LjY0NiwyNC4wNy05LjA5OQ0KCWMtMC4yMTktMC4wNi0wLjQzNy0wLjEwOC0wLjY1NS0wLjE3MWMtOS41NzgtMi43NzgtMTcuODA1LTcuOTU5LTI0LjIzNC0xNC42OGMtMTIuMjE2LDEuMDEtMjIuNjExLDQuNTkzLTI4Ljg1OSw5LjY0Mg0KCWMtMS40MTYsMS4xNDUtMS44MzksMy4xNDktMC45OTksNC43NzJjNi44NzQsMTMuMjc0LDIwLjM2MywyMi42MjEsMzYuMTc0LDIzLjYzOEMyOTQuMDc3LDIxOS41NzEsMjkxLjg4NSwyMTYuNDM5LDI5MC4xMjksMjEzLjA0OHoNCgkiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGMzdENzk7IiBkPSJNNTA4LjIxMiw5OS44NDhjLTIuNjY2LTQuNTgxLTI3LjMyNC00NC44NDMtNzEuNTU4LTQ4LjIwNmMtNC4yNjgtMC4yMjMtOC41OC0wLjE2NC0xMi44MTYsMC4xNzYNCglsLTEuMTQ4LDAuMDkybDAuNDcxLDEuMDUxYzcuMDA1LDE1LjY0OCw5LjAwMiwzMS40NDcsNy4xMDYsNDguMzA3bDAuODc3LDAuMDRjMTEuNzgyLDAuNTM4LDIzLjY3OSwzLjUxMywzNS4zNjIsOC44NDFsMC4zNjcsMC4xNjgNCglsMC4zNTUtMC4xODhjMTAuODQxLTUuNzI4LDIyLjQ0NS02Ljc4MywzNS40NzctMy4yMjVDNTA2LjkyNywxMDguMDU4LDUxMC4zOTcsMTAzLjU5OSw1MDguMjEyLDk5Ljg0OHoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNEODY2NjY7IiBkPSJNNDUyLjQ3Niw1NC41NDFjLTQuOTYtMS40NTctMTAuMjMzLTIuNDc0LTE1LjgyMy0yLjg5OWMtNC4yNjgtMC4yMjMtOC41OC0wLjE2NC0xMi44MTYsMC4xNzYNCglsLTEuMTQ4LDAuMDkybDAuNDcxLDEuMDUxYzcuMDA1LDE1LjY0OCw5LjAwMiwzMS40NDcsNy4xMDYsNDguMzA3bDAuODc3LDAuMDRjOS4zMzQsMC40MjYsMTguNzQsMi40MDcsMjguMDU1LDUuODUxDQoJQzQ2MS4wNCw4OC44NTIsNDU4Ljc4NCw3MS4xOSw0NTIuNDc2LDU0LjU0MXoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGMzdENzk7IiBkPSJNNDE4LjY0Miw0MC45NmMtMjQuMTktMzcuMTY5LTcxLjM0Ni0zOS40NTUtNzYuNjQzLTM5LjU5M2MtNC4zNC0wLjExNC02LjU4Miw1LjA3MS0zLjU0Myw4LjIyDQoJYzkuMzgsOS43MjEsMTQuMDI5LDIwLjQwNiwxNC4yMTIsMzIuNjY1bDAuMDA1LDAuNDAybDAuMzI0LDAuMjQyYzEzLjYzNywxMC4xOTQsMjMuNzE0LDIyLjU1OCwyOS45NDQsMzYuNzMxDQoJYzQuMTk4LDEwLjIwMSw2LjM3LDE5LjQ2OCw3LjU0NSwyOS40MTFsMC45OTYtMC40MDJjOC45NjItMy42MTcsMTguNTI1LTYuMDA4LDI4LjQwNS03LjEwNWMzLjY4OC0wLjMyMiw3LjQ4MS0wLjM5NywxMS4yNzQtMC4yMjMNCglsMC43NjIsMC4wMzVDNDM0LjM3OCw3OS40OTgsNDMwLjE3MSw1OS42MjMsNDE4LjY0Miw0MC45NnoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNEODY2NjY7IiBkPSJNNDEwLjUwOCwxMDIuOTk2YzEuOTEzLTI0LjExNS0zLjU4Ny00Ni44MzMtMTYuNDEzLTY3LjU5Ng0KCWMtOS41OTctMTQuNzQ2LTIyLjIwNy0yNC44OTgtMzUuMDE3LTMxLjkxNUMzNTAuMywxLjcxLDM0My43OCwxLjQxNCwzNDEuOTk5LDEuMzY3Yy00LjM0LTAuMTE0LTYuNTgyLDUuMDcxLTMuNTQzLDguMjINCgljOS4zOCw5LjcyMSwxNC4wMjksMjAuNDA2LDE0LjIxMiwzMi42NjVsMC4wMDUsMC40MDJsMC4zMjQsMC4yNDJjMTMuNjM3LDEwLjE5NCwyMy43MTQsMjIuNTU4LDI5Ljk0NCwzNi43MzENCgljNC4xMTQsOS45OTcsNi4zNSwxOS4zMDcsNy41MTYsMjkuMTY3YzAuMzM5LTAuMDUxLDAuNjc2LTAuMTA1LDEuMDE2LTAuMTU0bDAuMDA5LTAuMDAzDQoJQzM5Ny41NzUsMTA2LjE3OCw0MDMuOTQ5LDEwNC4zLDQxMC41MDgsMTAyLjk5NnoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNGMzdENzk7IiBkPSJNMzQzLjgsMTQ2LjY3NmMxMy4wMTgtMTcuNzI2LDI5LjA2LTMwLjUyNCw0Ny42ODItMzguMDM5bDAuNTc2LTAuMjMyDQoJYy0xLjE2MS05Ljg1Ny0zLjQ5LTE5LjM5NS03LjYxMS0yOS40MDhjLTIwLjY5NC00Ny4wODQtNzQuMzE3LTU4LjU3Ny04MC4zNjMtNTkuNzMxYy00Ljg1My0wLjkyNy04LjMxLDQuNDcxLTUuNDg5LDguNTQ2DQoJYzIxLjUzMywzMS4xNDksNy44OTUsNTkuMzgzLTE0LjYzMyw5MC4wMDlsMC4wNzEsMC4wMjljLTE2Ljk1MywyNi40OTctNy44NjMsNjEuMjM3LDE4LjUxMyw3Ni44NjUNCgljMy45MzIsMi4zMyw4LjIxOSw0LjIwNywxMi44MDYsNS41MzdjNi43NTcsMS45NTksMTMuNzUyLDIuNDY5LDIwLjc4NywxLjUxNGwxLjAxNy0wLjEzOGwtMC4zNjctMC45NTkNCglDMzMwLjMyNywxODMuODE3LDMzMy4wOCwxNjIuNjI1LDM0My44LDE0Ni42NzZ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojRDg2NjY2OyIgZD0iTTMxMy45MSwxMzEuNzAybC0wLjA3MS0wLjAyOWMyMi44MjktMzEuMzkyLDM4LjU5Ny02MS43NjUsMTcuMTYxLTk0LjI3Ng0KCWMtMS4yODYtMS45NDgtMS4yNjctNC40MTksMC4wNS02LjQ0OWMwLjUyOC0wLjgxNCwxLjIxMi0xLjQ1MiwxLjk4My0xLjkwOGMtMTQuMzA4LTYuNzI5LTI2LjI3Ny05LjI2Ni0yOC45NDktOS43NzYNCgljLTQuODUzLTAuOTI3LTguMzEsNC40NzEtNS40ODksOC41NDZjMjEuNTMzLDMxLjE0OSw3Ljg5NSw1OS4zODMtMTQuNjMzLDkwLjAwOWwwLjA3MSwwLjAyOQ0KCWMtMTYuOTUzLDI2LjQ5Ny03Ljg2Myw2MS4yMzcsMTguNTEzLDc2Ljg2NWMzLjkzMiwyLjMzLDguMjE5LDQuMjA3LDEyLjgwNiw1LjUzN2MwLjkyOSwwLjI2OSwxLjg2MywwLjUwNSwyLjgwMSwwLjcyDQoJQzMwMS43MTUsMTgyLjMxOCwyOTkuNjcxLDE1NC4wNDksMzEzLjkxLDEzMS43MDJ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojRjM3RDc5OyIgZD0iTTUxMC43MjYsMTQxLjdjLTMuOTE3LTQuNzQ3LTM5Ljc1LTQ2LjI2LTkxLjAwOS00MS43OTJjLTIxLjY2NCwyLjQwNS01Mi42NTMsMTIuMzA4LTc3LjI3Nyw0NS44NTYNCgljLTEzLjM5MiwxOS45MjItMTYuNDk1LDUyLjI3Miw0LjEzMiw3Mi45ODZjMy4zNzEsMy4zODUsNy4wNzUsNi4yNDMsMTEuMDA4LDguNTczYzI2LjMyNSwxNS41OTcsNjEuMTg2LDYuOTYxLDc2LjMwOS0yMC42ODMNCglsMC4wNzcsMC4wNjJjMTUuMzA3LTM0LjM5OSwzNC45NjEtNTkuOTMzLDcxLjktNTYuMDgyQzUxMC44MDIsMTUxLjEzNiw1MTMuODY3LDE0NS41MDcsNTEwLjcyNiwxNDEuN3oiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNEODY2NjY7IiBkPSJNMzcwLjkwMywxNjIuNjI3YzI3LjkwNC0zOC4wMTcsNzUuMzA3LTU3Ljc1MSwxMjEuMTQ0LTM4Ljc0Mw0KCWMtMTYuMDcyLTEyLjYxMy00MS4zODEtMjYuNjc0LTcyLjMyOS0yMy45NzdjLTIxLjY2NCwyLjQwNS01Mi42NTMsMTIuMzA4LTc3LjI3Nyw0NS44NTZjLTEzLjM5MiwxOS45MjItMTYuNDk1LDUyLjI3Miw0LjEzMiw3Mi45ODYNCgljMy4zNzEsMy4zODUsNy4wNzUsNi4yNDMsMTEuMDA4LDguNTczYzQuODg1LDIuODk0LDEwLjEyNSw0Ljk2NCwxNS41MTUsNi4yMjhDMzU0LjYyNCwyMTIuODAyLDM1Ny45NDcsMTgxLjg5OSwzNzAuOTAzLDE2Mi42Mjd6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg=="
+         alt="flower-icon" width="5%" style="display:block; margin: 1rem auto"/>
+    <h4 class="fs-1" style="color: #F5ABC9">“Take time to smell the roses.”– Proverb</h4>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--footer from base.html-->
+<div th:replace="base :: footer"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+</html>
