@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.ArrayList;
 
 @Controller
 public class HomeController {
@@ -26,6 +28,11 @@ public class HomeController {
 
     @Autowired
     CartRepository cartRepository;
+
+    @Autowired
+    CartsAndProductsRepository cartsAndProductsRepository;
+
+    ArrayList<Product> products = new ArrayList<>();
 
     @RequestMapping("/")
     public String homePage(){
@@ -47,9 +54,36 @@ public class HomeController {
     }
 
 
+    @RequestMapping("/addToCart/{id}")
+    public String addToCart(@PathVariable("id") long id, Model model){
+        products.add(productRepository.findById(id).get());
+        model.addAttribute("products", products);
+        return "shoppingcart";
+    }
 
+    @RequestMapping("/placeOrder")
+    public String placeOrder(Principal principal, Model model){
+        Cart cart = new Cart();
+        cartRepository.save(cart);
+        for (Product product : products){
+            CartsAndProducts order = new CartsAndProducts();
+            order.setProduct(product);
+            order.setCart(cart);
+            cartsAndProductsRepository.save(order);
+        }
 
+//        cartRepository.save(cart);
 
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username);
+        cart.setUser(user);
+        user.getCarts().add(cart);
+        userRepository.save(user);
+
+        products.clear();
+        model.addAttribute("user", user);
+        return "test";
+    }
 
 
     @RequestMapping("/login")
@@ -59,6 +93,7 @@ public class HomeController {
 
     @RequestMapping("/logout")
     public String logout() {
+        products.clear();
         return "redirect:/login?logout=true";
     }
 }

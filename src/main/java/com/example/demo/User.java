@@ -133,11 +133,11 @@ public class User {
         this.phone = phone;
     }
 
-    public Set<Cart> getOrders() {
+    public Set<Cart> getCarts() {
         return carts;
     }
 
-    public void setOrders(Set<Cart> carts) {
+    public void setCarts(Set<Cart> carts) {
         this.carts = carts;
     }
 }

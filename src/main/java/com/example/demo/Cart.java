@@ -12,17 +12,17 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
-    @NotEmpty
+//    @NotNull
+//    @NotEmpty
     private String date;
 
-    @NotNull
+//    @NotNull
     private long total;
 
-    @NotNull
+//    @NotNull
     private long shipping;
 
-    @NotNull
+//    @NotNull
     private long tax;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -30,7 +30,7 @@ public class Cart {
     private User user;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<OrdersAndProducts> products;
+    private Set<CartsAndProducts> products;
 
     public long getId() {
         return id;
@@ -49,6 +49,10 @@ public class Cart {
     }
 
     public long getTotal() {
+        long total = 0;
+        for (CartsAndProducts product : this.products){
+            total += product.getProduct().getPrice();
+        }
         return total;
     }
 
@@ -72,11 +76,11 @@ public class Cart {
         this.tax = tax;
     }
 
-    public Set<OrdersAndProducts> getProducts() {
+    public Set<CartsAndProducts> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<OrdersAndProducts> products) {
+    public void setProducts(Set<CartsAndProducts> products) {
         this.products = products;
     }
 

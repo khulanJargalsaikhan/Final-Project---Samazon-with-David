@@ -28,7 +28,7 @@ public class Product {
     private String photo;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<OrdersAndProducts> carts;
+    private Set<CartsAndProducts> carts;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
@@ -66,11 +66,11 @@ public class Product {
         this.description = description;
     }
 
-    public Set<OrdersAndProducts> getOrders() {
+    public Set<CartsAndProducts> getOrders() {
         return carts;
     }
 
-    public void setOrders(Set<OrdersAndProducts> carts) {
+    public void setOrders(Set<CartsAndProducts> carts) {
         this.carts = carts;
     }
 

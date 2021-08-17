@@ -22,6 +22,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     @Autowired
     CategoryRepository categoryRepository;
 
+    @Autowired
+    CartRepository cartRepository;
+
     public void run(String...args){
         User admin = new User("admin", "admin", true);
         Role adminRole = new Role("admin", "ROLE_ADMIN");
@@ -61,7 +64,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         flutter.setDescription("This is a great bouquet for birthdays.");
         flutter.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139581/hannah-olinger-CNgHaJwT5Pk-unsplash_fi2p0h.jpg");
         flutter.setCategory(birthday);
-        Set<OrdersAndProducts> flutterOrders = new HashSet<>();
+        Set<CartsAndProducts> flutterOrders = new HashSet<>();
         flutter.setOrders(flutterOrders);
 
         Product spirit = new Product();
@@ -70,7 +73,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         spirit.setDescription("Gorgeous bouquet that features carnations, stock, roses, lilies and Fuji mums.");
         spirit.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139580/leonardo-wong-7pGehyH7o64-unsplash_vqydow.jpg");
         spirit.setCategory(birthday);
-        Set<OrdersAndProducts> spiritOrders = new HashSet<>();
+        Set<CartsAndProducts> spiritOrders = new HashSet<>();
         spirit.setOrders(spiritOrders);
 
         Product eternal = new Product();
@@ -79,7 +82,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         eternal.setDescription("An exuberance of bright and beautiful white blossoms provides an exquisite way to deliver your expressions of sympathy and comfort.");
         eternal.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139570/nathan-dumlao-gXVwCdhqwp4-unsplash_l4s1fb.jpg");
         eternal.setCategory(birthday);
-        Set<OrdersAndProducts> eternalOrders = new HashSet<>();
+        Set<CartsAndProducts> eternalOrders = new HashSet<>();
         eternal.setOrders(eternalOrders);
 
         Product belle = new Product();
@@ -88,7 +91,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         belle.setDescription("Arranged with elegant florals and fragrance, this show-stopping collection of lilies and irises shares the perfect expression for any reason or occasion.");
         belle.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139567/carrie-beth-williams-s3AFTBZ3cnc-unsplash_aqu4xc.jpg");
         belle.setCategory(house);
-        Set<OrdersAndProducts> belleOrders = new HashSet<>();
+        Set<CartsAndProducts> belleOrders = new HashSet<>();
         belle.setOrders(belleOrders);
 
         Product garden = new Product();
@@ -97,7 +100,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         garden.setDescription("A gorgeous mix of bold, bright summer flowers is the best way to boost any mood.");
         garden.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139567/europeana-6c43FgRt0Dw-unsplash_tvxwae.jpg");
         garden.setCategory(house);
-        Set<OrdersAndProducts> gardenOrders = new HashSet<>();
+        Set<CartsAndProducts> gardenOrders = new HashSet<>();
         garden.setOrders(gardenOrders);
 
         Product light = new Product();
@@ -106,7 +109,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         light.setDescription("The Light of My Life Bouquet blossoms with brilliant color and a sweet sophistication to create the perfect impression.");
         light.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139564/visual-stories-micheile-A5W9yhQBb6A-unsplash_pnjp3f.jpg");
         light.setCategory(house);
-        Set<OrdersAndProducts> lightOrders = new HashSet<>();
+        Set<CartsAndProducts> lightOrders = new HashSet<>();
         light.setOrders(lightOrders);
 
         Product simple = new Product();
@@ -115,7 +118,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         simple.setDescription("Capture the beauty of the seasons in bloom with our Simple Charm Bouquet.");
         simple.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139562/brigitte-tohm-buUFEtmNnjc-unsplash_cxhafa.jpg");
         simple.setCategory(house);
-        Set<OrdersAndProducts> simpleOrders = new HashSet<>();
+        Set<CartsAndProducts> simpleOrders = new HashSet<>();
         simple.setOrders(simpleOrders);
 
         Product sorbet = new Product();
@@ -124,7 +127,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         sorbet.setDescription("Sorbet Bouquet is curated with a full serving of freshness and fragrance by our local florists to make anyone's day sweeter.");
         sorbet.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139557/tai-s-captures-FlVYEh0aJcM-unsplash_ztdynf.jpg");
         sorbet.setCategory(wedding);
-        Set<OrdersAndProducts> sorbetOrders = new HashSet<>();
+        Set<CartsAndProducts> sorbetOrders = new HashSet<>();
         sorbet.setOrders(sorbetOrders);
 
         Product bliss = new Product();
@@ -133,7 +136,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         bliss.setDescription("This dreamy jewel toned bouquet combines bold color and eye catching texture to make a statement.");
         bliss.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139556/annie-spratt-WBpr_yH0Frg-unsplash_d0hgrr.jpg");
         bliss.setCategory(house);
-        Set<OrdersAndProducts> blissOrders = new HashSet<>();
+        Set<CartsAndProducts> blissOrders = new HashSet<>();
         bliss.setOrders(blissOrders);
 
         Product peaceful = new Product();
@@ -142,7 +145,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         peaceful.setDescription("Express warmth to your loved ones with this peaceful garden.");
         peaceful.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139557/evie-s-XjX3Ju1jFfU-unsplash_rnukfe.jpg");
         peaceful.setCategory(wedding);
-        Set<OrdersAndProducts> peacefulOrders = new HashSet<>();
+        Set<CartsAndProducts> peacefulOrders = new HashSet<>();
         peaceful.setOrders(peacefulOrders);
 
         Product comfort = new Product();
@@ -151,7 +154,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         comfort.setDescription("Our Comfort and Grace is elegantly crafted by our passionate and dedicated local florists to compliment your heartfelt sympathies.");
         comfort.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629139547/taya-iv-n0dWXoatfSc-unsplash_erbfre.jpg");
         comfort.setCategory(wedding);
-        Set<OrdersAndProducts> comfortOrders = new HashSet<>();
+        Set<CartsAndProducts> comfortOrders = new HashSet<>();
         comfort.setOrders(comfortOrders);
 
         Product sprinkle = new Product();
@@ -160,7 +163,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         sprinkle.setDescription("Sprinkles make everything better. Overflowing with roses, carnations, gerbera daisies.");
         sprinkle.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144980/niklas-ohlrogge-74QmIJDTD-c-unsplash_nicosu.jpg");
         sprinkle.setCategory(birthday);
-        Set<OrdersAndProducts> sprinkleOrders = new HashSet<>();
+        Set<CartsAndProducts> sprinkleOrders = new HashSet<>();
         sprinkle.setOrders(sprinkleOrders);
 
         Product peach = new Product();
@@ -169,7 +172,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         peach.setDescription("In the spirit of the season, this lively arrangement comes right from the fields to bring freshness to any space.");
         peach.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144978/markus-clemens-mibjbNoS1XA-unsplash_ruog0s.jpg");
         peach.setCategory(house);
-        Set<OrdersAndProducts> peachOrders = new HashSet<>();
+        Set<CartsAndProducts> peachOrders = new HashSet<>();
         peach.setOrders(peachOrders);
 
         Product summer = new Product();
@@ -178,7 +181,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         summer.setDescription("With soft colors and rich texture, this bouquet elegantly expresses your appreciation for any reason.");
         summer.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144976/annie-spratt-x4YEK7o8L0c-unsplash_hkubce.jpg");
         summer.setCategory(wedding);
-        Set<OrdersAndProducts> summerOrders = new HashSet<>();
+        Set<CartsAndProducts> summerOrders = new HashSet<>();
         summer.setOrders(summerOrders);
 
         Product sweet = new Product();
@@ -187,7 +190,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         sweet.setDescription("Whether it's for an occasion or a pick–me–up for yourself, this sweet arrangement is ready to delight you or your loved ones.");
         sweet.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144971/christie-kim-0IsBu45B3T8-unsplash_lhb1iy.jpg");
         sweet.setCategory(wedding);
-        Set<OrdersAndProducts> sweetOrders = new HashSet<>();
+        Set<CartsAndProducts> sweetOrders = new HashSet<>();
         sweet.setOrders(sweetOrders);
 
         Product elegance = new Product();
@@ -196,7 +199,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         elegance.setDescription("An illuminating array of florals brings an air of elegance to any room it's placed. ");
         elegance.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144967/annie-spratt-01Wa3tPoQQ8-unsplash_trisvo.jpg");
         elegance.setCategory(wedding);
-        Set<OrdersAndProducts> eleganceOrders = new HashSet<>();
+        Set<CartsAndProducts> eleganceOrders = new HashSet<>();
         elegance.setOrders(eleganceOrders);
 
         Product cherish = new Product();
@@ -205,7 +208,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         cherish.setDescription("For the friends who truly feel like family, share your thoughts and love with timeless flowers.");
         cherish.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144967/annie-spratt-tODXQIEAh9M-unsplash_o7bwcl.jpg");
         cherish.setCategory(birthday);
-        Set<OrdersAndProducts> cherishOrders = new HashSet<>();
+        Set<CartsAndProducts> cherishOrders = new HashSet<>();
         cherish.setOrders(cherishOrders);
 
         Product precious = new Product();
@@ -214,7 +217,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         precious.setDescription("Handcrafted and inspired by the gorgeous hues of the season, the You're Precious Bouquet is full of sweet sentiment for your favorite person.");
         precious.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144966/ananthu-selvam-62saZ_T5AP0-unsplash_ysq2je.jpg");
         precious.setCategory(birthday);
-        Set<OrdersAndProducts> preciousOrders = new HashSet<>();
+        Set<CartsAndProducts> preciousOrders = new HashSet<>();
         precious.setOrders(preciousOrders);
 
         Product champagne = new Product();
@@ -223,7 +226,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         champagne.setDescription("Our Pink Champagne Roses bring a pop of bubbly color to any home.");
         champagne.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144963/jessie-daniella-QLuleNy8LMM-unsplash_znnx4s.jpg");
         champagne.setCategory(house);
-        Set<OrdersAndProducts> champagneOrders = new HashSet<>();
+        Set<CartsAndProducts> champagneOrders = new HashSet<>();
         champagne.setOrders(champagneOrders);
 
         Product joy = new Product();
@@ -232,7 +235,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         joy.setDescription("The most popular variety of this plant, the Phalaenopsis orchid makes a great gift for plant lovers and plant beginners alike");
         joy.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629144960/zoe-schaeffer-V_MV68oW3FE-unsplash_qhzlti.jpg");
         joy.setCategory(birthday);
-        Set<OrdersAndProducts> joyOrders = new HashSet<>();
+        Set<CartsAndProducts> joyOrders = new HashSet<>();
         joy.setOrders(joyOrders);
 
         weddingProducts.add(sorbet);
@@ -262,6 +265,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         categoryRepository.save(wedding);
         categoryRepository.save(house);
         categoryRepository.save(birthday);
+
+        Cart cart = new Cart();
+        cartRepository.save(cart);
     }
 
 }

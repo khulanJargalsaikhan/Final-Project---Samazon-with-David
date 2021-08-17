@@ -3,7 +3,7 @@ package com.example.demo;
 import javax.persistence.*;
 
 @Entity
-public class OrdersAndProducts {
+public class CartsAndProducts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,11 @@ public class OrdersAndProducts {
         this.product = product;
     }
 
-    public Cart getOrder() {
+    public Cart getCart() {
         return cart;
     }
 
-    public void setOrder(Cart cart) {
+    public void setCart(Cart cart) {
         this.cart = cart;
     }
 
