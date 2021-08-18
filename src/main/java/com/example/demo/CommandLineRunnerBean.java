@@ -266,8 +266,8 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         categoryRepository.save(house);
         categoryRepository.save(birthday);
 
-        Cart cart = new Cart();
-        cartRepository.save(cart);
+//        Cart cart = new Cart();
+//        cartRepository.save(cart);
     }
 
 }

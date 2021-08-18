@@ -10,24 +10,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@300&family=Sacramento&display=swap" rel="stylesheet">
     <link th:href="@{/css/styles.css}" rel="stylesheet" >
+
 </head>
 <body>
 <!--nav bar from base.html-->
 <div th:replace="base :: navlinks"></div>
 
+
 <div class="container-md">
     <div>
-        <h3 class="display-3">Flowers & Exclusive Gifts</h3>
+        <h3 class="display-3">Search Results</h3>
     </div>
 
     <div class="row row-cols-2 row-cols-md-4 g-4">
-        <div th:each="product : ${products}" class="card-deck">
+        <div th:each="result : ${results}" class="card-deck">
             <div class="card">
-                <img th:src="${product.photo}" width="200" height="200" class="card-img-top" src="..." alt="Card image cap">
+                <img th:src="${result.photo}" width="200" height="200" class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">[[${product.name}]] </h5>
-                    <p class="card-text">$[[${product.price}]]</p>
-                    <p class="card-text">[[${product.description}]]</p>
+                    <h5 class="card-title">[[${result.name}]] </h5>
+                    <p class="card-text">$[[${result.price}]]</p>
+                    <p class="card-text">[[${result.description}]]</p>
                     <span th:each="cart : ${carts}">
                         <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add to Cart</a>
                     </span>
@@ -47,7 +49,6 @@
 <div th:fragment="footer" class="container-md">
     <p style="text-align: center; background-color: #B6C9F0; padding: 1rem;">Ari Floral Studio ~ est.2021</p>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>

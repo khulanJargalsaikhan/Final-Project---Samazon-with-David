@@ -73,63 +73,34 @@
 </div>
 
 <div class="container-md">
-    <div class="row row-cols-2 row-cols-md-4 g-4">
-        <div class="col">
-            <div class="card">
-                <img th:src="@{../images/flower1.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">$49.99</p>
-                    <h5 class="card-title">Sunshine</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img th:src="@{../images/flower2.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img th:src="@{../images/hb2.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img th:src="@{../images/heartbox_open.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="col">
+    <div class="row row-cols-2 row-cols-md-4 g-4">
+        <div th:each="product : ${products}" class="card-deck">
             <div class="card">
-                <img th:src="@{../images/flower-4.jpg}" class="card-img-top" alt="...">
+                <img th:src="${product.photo}" width="200" height="200" class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">[[${product.name}]] </h5>
+                    <p class="card-text">$[[${product.price}]]</p>
+                    <p class="card-text">[[${product.description}]]</p>
+                    <span th:each="cart : ${carts}">
+                        <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add to Cart</a>
+                    </span>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img th:src="@{../images/flower-5.jpg}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="card-footer">
+                    <p class="card-text"></p>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
 </div>
 
 
