@@ -49,11 +49,11 @@
 
                 <ul class="navbar-nav" style="padding-left: 2rem">
                     <li class="nav-item" style="font-size: 1.5rem;">
-                        <a href="#"><i class="bi bi-cart4"></i></a>
+                        <a th:href="@{/shoppingCart}"><i class="bi bi-cart4"></i></a>
                     </li>
 
                     <li class="nav-item" style="font-size: small;">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" th:href="@{/userInfo}">
                             <p>Hello, <span sec:authentication="name"></span><br>
                                 Account & Order History
                             </p>

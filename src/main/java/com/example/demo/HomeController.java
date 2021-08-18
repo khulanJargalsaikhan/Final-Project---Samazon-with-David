@@ -43,35 +43,30 @@ public class HomeController {
     @RequestMapping("/")
     public String homePage(Model model){
         model.addAttribute("products", productRepository.findAll());
-        model.addAttribute("carts", cartRepository.findAll());
         return "home";
     }
 
     @RequestMapping("/flowers")
     public String showAllFlowers(Model model){
         model.addAttribute("products", productRepository.findAll());
-        model.addAttribute("carts", cartRepository.findAll());
         return "flowers";
     }
 
     @RequestMapping("/birthday")
     public String showAllBirthdayCategory(Model model){
         model.addAttribute("category", categoryRepository.findByName("Birthday"));
-        model.addAttribute("carts", cartRepository.findAll());
         return "birthday";
     }
 
     @RequestMapping("/wedding")
     public String showAllWeddingCategory(Model model){
         model.addAttribute("category", categoryRepository.findByName("Wedding Bouquet"));
-        model.addAttribute("carts", cartRepository.findAll());
         return "wedding";
     }
 
     @RequestMapping("/house")
     public String showAllHousewarmingCategory(Model model){
         model.addAttribute("category", categoryRepository.findByName("Housewarming"));
-        model.addAttribute("carts", cartRepository.findAll());
         return "house";
     }
 
@@ -94,7 +89,8 @@ public class HomeController {
     @RequestMapping("/shoppingCart")
     public String shoppingCart(Model model){
         model.addAttribute("products", products);
-        if (total <= 50){
+        double subtotal = total;
+        if (total <= 50 && !products.isEmpty()){
             shipping = 5.99;
         }
         tax = Math.round((total * 0.06) * 100.0) /100.0;
@@ -102,6 +98,7 @@ public class HomeController {
 
         model.addAttribute("total", total);
         model.addAttribute("shipping", shipping);
+        model.addAttribute("subtotal", subtotal);
         model.addAttribute("tax", tax);
         return "shoppingcart";
     }
@@ -110,6 +107,9 @@ public class HomeController {
     public String placeOrder(Principal principal, Model model){
         if (principal == null){
             return "redirect:/login";
+        }
+        if (products.isEmpty()){
+            return "redirect:/shoppingCart";
         }
         Cart cart = new Cart();
         cart.setTax(tax);
@@ -135,7 +135,18 @@ public class HomeController {
         tax = 0;
         total = 0;
         shipping = 0;
-        return "test";
+        return "redirect:/";
+    }
+
+    @RequestMapping("/removeItem/{id}")
+    public String removeFromCart(@PathVariable("id") long id){
+        for(Product product : products){
+            if (product.getId() == id){
+                products.remove(product);
+                break;
+            }
+        }
+        return "redirect:/shoppingCart";
     }
 
 
@@ -172,7 +183,7 @@ public class HomeController {
 
     @PostMapping("/search")
     public String searchProduct(Model model, @RequestParam(name="name") String name){
-        ArrayList<Product> results = (ArrayList<Product>) productRepository.findAllByNameContaining(name);
+        ArrayList<Product> results = (ArrayList<Product>) productRepository.findAllByNameContainingIgnoreCase(name);
         model.addAttribute("results", results);
         model.addAttribute("carts", cartRepository.findAll());
         return "result";

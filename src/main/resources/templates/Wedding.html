@@ -33,9 +33,7 @@
                     <h5 class="card-title">[[${product.name}]] </h5>
                     <p class="card-text">$[[${product.price}]]</p>
                     <p class="card-text">[[${product.description}]]</p>
-                    <span th:each="cart : ${carts}">
-                        <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add to Cart</a>
-                    </span>
+                    <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add to Cart</a>
                 </div>
                 <div class="card-footer">
                     <p class="card-text"></p>

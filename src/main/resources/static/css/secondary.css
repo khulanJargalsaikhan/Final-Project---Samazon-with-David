@@ -30,4 +30,20 @@
     float: right;
 }
 
+.buttonAlign{
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Sacramento', cursive;
+    text-align: center;
+    padding-top: 1.5rem;
+    color: #E93B81;
+}
+
+p {
+    font-family: 'Montserrat'
+}
 
