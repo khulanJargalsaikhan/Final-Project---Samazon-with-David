@@ -8,10 +8,8 @@
 </head>
 <body>
 hello
-<div th:each="cart : ${user.carts}">
-    <span th:each="prod : ${cart.products}">
-        <p th:text="${prod.product.name}"></p>
-    </span>
+<div th:each="product : ${category.products}">
+    <p th:text="${product.name}"></p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

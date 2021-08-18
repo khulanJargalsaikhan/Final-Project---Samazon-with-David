@@ -17,7 +17,7 @@ public class Product {
     private String name;
 
     @NotNull
-    private long price;
+    private double price;
 
     @NotEmpty
     @NotNull
@@ -50,11 +50,11 @@ public class Product {
         this.name = name;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

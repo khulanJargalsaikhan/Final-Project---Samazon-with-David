@@ -36,6 +36,9 @@ public class HomeController {
     CartsAndProductsRepository cartsAndProductsRepository;
 
     ArrayList<Product> products = new ArrayList<>();
+    private double total = 0;
+    private double shipping = 0;
+    private double tax = 0;
 
     @RequestMapping("/")
     public String homePage(Model model){
@@ -84,13 +87,34 @@ public class HomeController {
     @RequestMapping("/addToCart/{id}")
     public String addToCart(@PathVariable("id") long id, Model model){
         products.add(productRepository.findById(id).get());
+        total += productRepository.findById(id).get().getPrice();
+        return "redirect:/shoppingCart";
+    }
+
+    @RequestMapping("/shoppingCart")
+    public String shoppingCart(Model model){
         model.addAttribute("products", products);
+        if (total <= 50){
+            shipping = 5.99;
+        }
+        tax = Math.round((total * 0.06) * 100.0) /100.0;
+        total = Math.round((tax + shipping + total) * 100.0) / 100.0;
+
+        model.addAttribute("total", total);
+        model.addAttribute("shipping", shipping);
+        model.addAttribute("tax", tax);
         return "shoppingcart";
     }
 
     @RequestMapping("/placeOrder")
     public String placeOrder(Principal principal, Model model){
+        if (principal == null){
+            return "redirect:/login";
+        }
         Cart cart = new Cart();
+        cart.setTax(tax);
+        cart.setTotal(total);
+        cart.setShipping(shipping);
         cartRepository.save(cart);
         for (Product product : products){
             CartsAndProducts order = new CartsAndProducts();
@@ -108,6 +132,9 @@ public class HomeController {
 
         products.clear();
         model.addAttribute("user", user);
+        tax = 0;
+        total = 0;
+        shipping = 0;
         return "test";
     }
 
@@ -119,6 +146,9 @@ public class HomeController {
 
     @RequestMapping("/logout")
     public String logout() {
+        tax = 0;
+        total = 0;
+        shipping = 0;
         products.clear();
         return "redirect:/login?logout=true";
     }

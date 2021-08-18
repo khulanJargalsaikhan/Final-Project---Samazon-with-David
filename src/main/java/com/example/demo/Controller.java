@@ -29,5 +29,19 @@ public class Controller {
     @Autowired
     CartsAndProductsRepository cartsAndProductsRepository;
 
+    @Autowired
+    CategoryRepository categoryRepository;
+
+    @RequestMapping("/userInfo")
+    public String userInfomration(Model model, Principal principal){
+        if (principal == null){
+            return "redirect:/login";
+        }
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username);
+        model.addAttribute("user", user);
+        return "userinformation";
+    }
+
 
 }

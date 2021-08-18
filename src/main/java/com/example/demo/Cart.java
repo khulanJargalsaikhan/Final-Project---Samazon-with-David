@@ -17,13 +17,13 @@ public class Cart {
     private String date;
 
 //    @NotNull
-    private long total;
+    private double total;
 
 //    @NotNull
-    private long shipping;
+    private double shipping;
 
 //    @NotNull
-    private long tax;
+    private double tax;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -48,31 +48,27 @@ public class Cart {
         this.date = date;
     }
 
-    public long getTotal() {
-        long total = 0;
-        for (CartsAndProducts product : this.products){
-            total += product.getProduct().getPrice();
-        }
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(long total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
-    public long getShipping() {
+    public double getShipping() {
         return shipping;
     }
 
-    public void setShipping(long shipping) {
+    public void setShipping(double shipping) {
         this.shipping = shipping;
     }
 
-    public long getTax() {
+    public double getTax() {
         return tax;
     }
 
-    public void setTax(long tax) {
+    public void setTax(double tax) {
         this.tax = tax;
     }
 

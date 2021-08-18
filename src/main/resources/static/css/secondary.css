@@ -1,0 +1,33 @@
+.listAlignLeft{
+    display:inline;
+    float: left;
+}
+
+.listAlignRight{
+    display: inline;
+    float: right;
+}
+
+#ordersList{
+    list-style: none;
+}
+
+.alignLeft{
+    float: left;
+    padding-left: 70%;
+}
+
+.list-group-item{
+    padding-bottom: 0;
+    border-top: none;
+    border-right:none;
+    border-left: none;
+}
+
+.alignRight {
+    padding-right:15px;
+    display: inline;
+    float: right;
+}
+
+
