@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -29,6 +29,10 @@
                     <p class="card-text">$[[${#numbers.formatDecimal(product.price, 1, 2, 'POINT')}]]</p>
                     <p class="card-text">[[${product.description}]]</p>
                     <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add to Cart</a>
+                    <span sec:authorize="hasRole('ADMIN')">
+                        <a th:href="@{/updateProduct/{id}(id=${product.id})}" class="card-link cardLink">Update</a>
+                        <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="card-link">Delete</a>
+                    </span>
                 </div>
                 <div class="card-footer">
                     <p class="card-text"></p>

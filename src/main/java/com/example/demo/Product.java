@@ -23,13 +23,12 @@ public class Product {
     @NotNull
     private String description;
 
-    @NotEmpty
-    @NotNull
     private String photo;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CartsAndProducts> carts;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
@@ -66,11 +65,11 @@ public class Product {
         this.description = description;
     }
 
-    public Set<CartsAndProducts> getOrders() {
+    public Set<CartsAndProducts> getCarts() {
         return carts;
     }
 
-    public void setOrders(Set<CartsAndProducts> carts) {
+    public void setCarts(Set<CartsAndProducts> carts) {
         this.carts = carts;
     }
 

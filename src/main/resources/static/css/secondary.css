@@ -33,6 +33,7 @@
 .buttonAlign{
     display: flex;
     margin-top: 15px;
+    margin-bottom: 15px;
     justify-content: center;
 }
 
@@ -45,5 +46,10 @@ h1, h2, h3, h4 {
 
 p {
     font-family: 'Montserrat'
+}
+
+.buttonPadding {
+    display: flex;
+    margin-bottom: 15px;
 }
 
