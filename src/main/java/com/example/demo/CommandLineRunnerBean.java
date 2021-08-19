@@ -32,7 +32,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         User user = new User("user", "user", true);
         Role userRole = new Role("user", "ROLE_USER");
         user.setAddress("1234 xxxxx st");
-        user.setEmail("user@domain.com");
+        user.setEmail("davidkim654@gmail.com");
         user.setState("MD");
         user.setCity("Montgomery");
         user.setPhone("555-555-5555");

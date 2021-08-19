@@ -2,6 +2,9 @@ package com.example.demo;
 
 import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,52 +42,56 @@ public class HomeController {
     @Autowired
     CartsAndProductsRepository cartsAndProductsRepository;
 
+    @Autowired
+    private JavaMailSender mailSender;
+
     ArrayList<Product> products = new ArrayList<>();
     private double total = 0;
     private double shipping = 0;
     private double tax = 0;
+    private double subtotal = 0;
 
     @RequestMapping("/")
     public String homePage(Model model){
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("products", productRepository.findAll());
-        model.addAttribute("cartItems", products.size());
         return "home";
     }
 
     @RequestMapping("/flowers")
     public String showAllFlowers(Model model){
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("products", productRepository.findAll());
-        model.addAttribute("cartItems", products.size());
         return "flowers";
     }
 
     @RequestMapping("/birthday")
     public String showAllBirthdayCategory(Model model){
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("category", categoryRepository.findByName("Birthday"));
-        model.addAttribute("cartItems", products.size());
         return "birthday";
     }
 
     @RequestMapping("/wedding")
     public String showAllWeddingCategory(Model model){
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("category", categoryRepository.findByName("Wedding Bouquet"));
-        model.addAttribute("cartItems", products.size());
         return "wedding";
     }
 
     @RequestMapping("/house")
     public String showAllHousewarmingCategory(Model model){
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("category", categoryRepository.findByName("Housewarming"));
-        model.addAttribute("cartItems", products.size());
         return "house";
     }
 
 
     @RequestMapping("/product/{id}")
     public String showShoppingCart(@PathVariable("id") long id, Model model){
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("product", productRepository.findById(id).get());
         model.addAttribute("carts", cartRepository.findAll());
-        model.addAttribute("cartItems", products.size());
         return "shoppingcart";
     }
 
@@ -92,20 +99,22 @@ public class HomeController {
     @RequestMapping("/addToCart/{id}")
     public String addToCart(@PathVariable("id") long id, Model model){
         products.add(productRepository.findById(id).get());
-        total += productRepository.findById(id).get().getPrice();
+        subtotal += productRepository.findById(id).get().getPrice();
         return "redirect:/shoppingCart";
     }
 
     @RequestMapping("/shoppingCart")
     public String shoppingCart(Model model){
-        model.addAttribute("cartItems", products.size());
+        model.addAttribute("cartCount", products.size());
         model.addAttribute("products", products);
-        double subtotal = total;
-        if (total <= 50 && !products.isEmpty()){
+        if (subtotal <= 50 && !products.isEmpty()){
             shipping = 5.99;
         }
-        tax = Math.round((total * 0.06) * 100.0) /100.0;
-        total = Math.round((tax + shipping + total) * 100.0) / 100.0;
+        else {
+            shipping = 0;
+        }
+        tax = Math.round((subtotal * 0.06) * 100.0) /100.0;
+        total = Math.round((tax + shipping + subtotal) * 100.0) / 100.0;
 
         model.addAttribute("total", total);
         model.addAttribute("shipping", shipping);
@@ -142,11 +151,29 @@ public class HomeController {
         user.getCarts().add(cart);
         userRepository.save(user);
 
-        products.clear();
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("samazon12345@gmail.com");
+        message.setTo(user.getEmail());
+        message.setSubject("Samazon Order Confirmation");
+
+        String emailMessage = "";
+        for (Product product : products){
+            emailMessage += product.getName() + ": " + product.getPrice() + "\n";
+        }
+        emailMessage += "Subtotal: " + subtotal + "\nTax: " + tax + "\nTotal: " + total;
+        message.setText(emailMessage);
+
+        try {
+            mailSender.send(message);
+        } catch(MailException e) {
+            e.printStackTrace();
+        }
         model.addAttribute("user", user);
         tax = 0;
         total = 0;
         shipping = 0;
+        products.clear();
         return "confirmationpage";
     }
 
@@ -155,6 +182,8 @@ public class HomeController {
         for(Product product : products){
             if (product.getId() == id){
                 products.remove(product);
+                subtotal -= product.getPrice();
+                tax = 0;
                 break;
             }
         }
@@ -162,16 +191,17 @@ public class HomeController {
     }
 
 
-
     @RequestMapping("/login")
     public String login(Model model){
-        model.addAttribute("cartItems", products.size());
+        model.addAttribute("cartCount", products.size());
         return "login";
     }
 
     @RequestMapping("/logout")
-    public String logout() {
+    public String logout(Model model) {
+        model.addAttribute("cartCount", products.size());
         tax = 0;
+        subtotal = 0;
         total = 0;
         shipping = 0;
         products.clear();
@@ -183,15 +213,21 @@ public class HomeController {
 
 
 
+
+
+
+
+
+
     @GetMapping("/search")
     public String searchProduct(Model model){
-        model.addAttribute("cartItems", products.size());
+        model.addAttribute("cartCount", products.size());
         return "home";
     }
 
     @PostMapping("/search")
     public String searchProduct(Model model, @RequestParam(name="name") String name){
-        model.addAttribute("cartItems", products.size());
+        model.addAttribute("cartCount", products.size());
         ArrayList<Product> results = (ArrayList<Product>) productRepository.findAllByNameContainingIgnoreCase(name);
         model.addAttribute("results", results);
         model.addAttribute("carts", cartRepository.findAll());
@@ -200,6 +236,60 @@ public class HomeController {
 
 
 
+    @RequestMapping("/userInfo")
+    public String userInfomration(Model model, Principal principal){
+        model.addAttribute("cartCount", products.size());
+        if (principal == null){
+            return "redirect:/login";
+        }
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username);
+        model.addAttribute("user", user);
+        return "userinformation";
+    }
 
+    @GetMapping("/addProduct")
+    public String addProduct(Model model){
+        model.addAttribute("cartCount", products.size());
+        model.addAttribute("product", new Product());
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "productform";
+    }
+
+    @PostMapping("/processProduct")
+    public String processProduct(@Valid Product product, BindingResult result, @RequestParam("file") MultipartFile file, Model model){
+        model.addAttribute("cartCount", products.size());
+        if (result.hasErrors()){
+            return "productform";
+        }
+        if(file.isEmpty() && (product.getPhoto() == null || product.getPhoto().isEmpty())){
+            product.setPhoto("https://res.cloudinary.com/dkim/image/upload/v1629329688/default_product_lq4klk.png");
+        }
+        else if(!file.isEmpty()){
+            try{
+                Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+                product.setPhoto(uploadResult.get("url").toString());
+            } catch (IOException e){
+                e.printStackTrace();
+                return "redirect:/addProduct";
+            }
+        }
+        productRepository.save(product);
+        return "redirect:/flowers";
+    }
+
+    @RequestMapping("/updateProduct/{id}")
+    public String updateProduct(@PathVariable("id") long id, Model model){
+        model.addAttribute("cartCount", products.size());
+        model.addAttribute("product", productRepository.findById(id).get());
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "productform";
+    }
+
+    @RequestMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable("id") long id){
+        productRepository.deleteById(id);
+        return "redirect:/flowers";
+    }
 
 }
