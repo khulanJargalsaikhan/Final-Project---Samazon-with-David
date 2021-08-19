@@ -1,15 +1,19 @@
 package com.example.demo;
 
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -43,30 +47,35 @@ public class HomeController {
     @RequestMapping("/")
     public String homePage(Model model){
         model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("cartItems", products.size());
         return "home";
     }
 
     @RequestMapping("/flowers")
     public String showAllFlowers(Model model){
         model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("cartItems", products.size());
         return "flowers";
     }
 
     @RequestMapping("/birthday")
     public String showAllBirthdayCategory(Model model){
         model.addAttribute("category", categoryRepository.findByName("Birthday"));
+        model.addAttribute("cartItems", products.size());
         return "birthday";
     }
 
     @RequestMapping("/wedding")
     public String showAllWeddingCategory(Model model){
         model.addAttribute("category", categoryRepository.findByName("Wedding Bouquet"));
+        model.addAttribute("cartItems", products.size());
         return "wedding";
     }
 
     @RequestMapping("/house")
     public String showAllHousewarmingCategory(Model model){
         model.addAttribute("category", categoryRepository.findByName("Housewarming"));
+        model.addAttribute("cartItems", products.size());
         return "house";
     }
 
@@ -75,6 +84,7 @@ public class HomeController {
     public String showShoppingCart(@PathVariable("id") long id, Model model){
         model.addAttribute("product", productRepository.findById(id).get());
         model.addAttribute("carts", cartRepository.findAll());
+        model.addAttribute("cartItems", products.size());
         return "shoppingcart";
     }
 
@@ -88,6 +98,7 @@ public class HomeController {
 
     @RequestMapping("/shoppingCart")
     public String shoppingCart(Model model){
+        model.addAttribute("cartItems", products.size());
         model.addAttribute("products", products);
         double subtotal = total;
         if (total <= 50 && !products.isEmpty()){
@@ -105,6 +116,7 @@ public class HomeController {
 
     @RequestMapping("/placeOrder")
     public String placeOrder(Principal principal, Model model){
+        model.addAttribute("total", total);
         if (principal == null){
             return "redirect:/login";
         }
@@ -135,7 +147,7 @@ public class HomeController {
         tax = 0;
         total = 0;
         shipping = 0;
-        return "redirect:/";
+        return "confirmationpage";
     }
 
     @RequestMapping("/removeItem/{id}")
@@ -150,8 +162,10 @@ public class HomeController {
     }
 
 
+
     @RequestMapping("/login")
-    public String login(){
+    public String login(Model model){
+        model.addAttribute("cartItems", products.size());
         return "login";
     }
 
@@ -169,20 +183,15 @@ public class HomeController {
 
 
 
-
-
-
-
-
-
-
     @GetMapping("/search")
     public String searchProduct(Model model){
+        model.addAttribute("cartItems", products.size());
         return "home";
     }
 
     @PostMapping("/search")
     public String searchProduct(Model model, @RequestParam(name="name") String name){
+        model.addAttribute("cartItems", products.size());
         ArrayList<Product> results = (ArrayList<Product>) productRepository.findAllByNameContainingIgnoreCase(name);
         model.addAttribute("results", results);
         model.addAttribute("carts", cartRepository.findAll());

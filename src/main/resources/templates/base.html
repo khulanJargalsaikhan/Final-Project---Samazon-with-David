@@ -39,7 +39,6 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/flowers}">Flowers</a>
                     </li>
-
                 </ul>
 
                 <form th:action="@{/search}" method="post" class="d-flex">
@@ -48,16 +47,16 @@
                 </form>
 
                 <ul class="navbar-nav" style="padding-left: 2rem">
-                    <li class="nav-item" style="font-size: 1.5rem;">
-                        <a th:href="@{/shoppingCart}"><i class="bi bi-cart4"></i></a>
-                    </li>
-
                     <li class="nav-item" style="font-size: small;">
                         <a class="nav-link" th:href="@{/userInfo}">
                             <p>Hello, <span sec:authentication="name"></span><br>
                                 Account & Order History
                             </p>
                         </a>
+                    </li>
+                    <li class="nav-item" style="font-size: 1.5rem;">
+                        <p style="font-size: small; color: blue; margin-left: 6px; margin-bottom: 6px; position: absolute ">[[${cartItems}]]</p>
+                        <a th:href="@{/shoppingCart}"><i class="bi bi-cart4"></i></a>
                     </li>
                 </ul>
             </div>

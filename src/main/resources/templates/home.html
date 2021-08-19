@@ -24,8 +24,6 @@
     </div>
 </div>
 
-
-
 <div class="container-md">
     <div class="row">
         <div class="col">
@@ -72,20 +70,53 @@
     <h3 class="display-3">Send Flowers & Exclusive Gifts</h3>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a th:href="@{/flowers}" type="button" class="btn btn-warning btn-lg" style="margin-bottom: 1rem">Shop HERE!</a>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="container-md">
 
-    <div class="row row-cols-2 row-cols-md-4 g-4">
-        <div th:each="product : ${products}" class="card-deck">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
             <div class="card">
-                <img th:src="${product.photo}" width="200" height="200" class="card-img-top" src="..." alt="Card image cap">
+                <img src="https://res.cloudinary.com/dkim/image/upload/v1629319202/evie-s-XjX3Ju1jFfU-unsplash_rnukfe.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">[[${product.name}]] </h5>
-                    <p class="card-text">$[[${product.price}]]</p>
-                    <p class="card-text">[[${product.description}]]</p>
-                    <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add to Cart</a>
+                    <h5 class="card-title">Peaceful Garden</h5>
+                    <p class="card-text">Express warmth to your loved ones with this peaceful garden.</p>
                 </div>
-                <div class="card-footer">
-                    <p class="card-text"></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://res.cloudinary.com/dkim/image/upload/v1629318628/niklas-ohlrogge-74QmIJDTD-c-unsplash_nicosu.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Sprinkles</h5>
+                    <p class="card-text">Sprinkles make everything better. Overflowing with roses, carnations, gerbera daisies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="https://res.cloudinary.com/dkim/image/upload/v1629318665/annie-spratt-01Wa3tPoQQ8-unsplash_trisvo.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Alluring Elegance</h5>
+                    <p class="card-text">An illuminating array of florals brings an air of elegance to any room it's placed.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://res.cloudinary.com/dkim/image/upload/v1629318772/jessie-daniella-QLuleNy8LMM-unsplash_znnx4s.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Pink Champagne</h5>
+                    <p class="card-text">Our Pink Champagne Roses bring a pop of bubbly color to any home.</p>
                 </div>
             </div>
         </div>
