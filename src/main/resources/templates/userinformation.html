@@ -35,10 +35,10 @@
             Order #[[${cart.id}]]
         </div>
         <div class="card-body">
-            <ul class="list-group" th:each="prod : ${cart.products}">
+            <ul class="list-group" th:each="product : ${cart.productsHistory}">
                 <li class="list-group-item">
-                    <p class="listAlignLeft">[[${prod.product.name}]]</p>
-                    <p class="listAlignRight">$[[${#numbers.formatDecimal(prod.product.price, 1, 2, 'POINT')}]]</p>
+                    <p class="listAlignLeft">[[${product.name}]]</p>
+                    <p class="listAlignRight">$[[${#numbers.formatDecimal(product.price, 1, 2, 'POINT')}]]</p>
                 </li>
             </ul>
                 <p class="alignLeft">Tax:</p>

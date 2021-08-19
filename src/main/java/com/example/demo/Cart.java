@@ -3,6 +3,8 @@ package com.example.demo;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -24,6 +26,10 @@ public class Cart {
 
 //    @NotNull
     private double tax;
+
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProductHistory> productsHistory;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -86,5 +92,13 @@ public class Cart {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<ProductHistory> getProductsHistory() {
+        return productsHistory;
+    }
+
+    public void setProductsHistory(Set<ProductHistory> productsHistory) {
+        this.productsHistory = productsHistory;
     }
 }

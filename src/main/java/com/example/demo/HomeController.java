@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
@@ -44,6 +45,9 @@ public class HomeController {
 
     @Autowired
     private JavaMailSender mailSender;
+
+    @Autowired
+    ProductHistoryRepository productHistoryRepository;
 
     ArrayList<Product> products = new ArrayList<>();
     private double total = 0;
@@ -142,6 +146,10 @@ public class HomeController {
             order.setProduct(product);
             order.setCart(cart);
             cartsAndProductsRepository.save(order);
+            ProductHistory productHistory = new ProductHistory();
+            productHistory.createProductHistory(product);
+            productHistory.setCart(cart);
+            productHistoryRepository.save(productHistory);
         }
 
 
@@ -150,7 +158,6 @@ public class HomeController {
         cart.setUser(user);
         user.getCarts().add(cart);
         userRepository.save(user);
-
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("samazon12345@gmail.com");
@@ -213,13 +220,6 @@ public class HomeController {
 
 
 
-
-
-
-
-
-
-
     @GetMapping("/search")
     public String searchProduct(Model model){
         model.addAttribute("cartCount", products.size());
@@ -234,6 +234,8 @@ public class HomeController {
         model.addAttribute("carts", cartRepository.findAll());
         return "result";
     }
+
+
 
 
 
