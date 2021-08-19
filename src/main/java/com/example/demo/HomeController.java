@@ -173,6 +173,7 @@ public class HomeController {
         tax = 0;
         total = 0;
         shipping = 0;
+        subtotal = 0;
         products.clear();
         return "confirmationpage";
     }

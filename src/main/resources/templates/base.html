@@ -39,6 +39,12 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/flowers}">Flowers</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Login</a>
+                    </li>
+                    <li sec:authorize="hasRole('ADMIN')" class="nav-item">
+                        <a class="nav-link" th:href="@{/addProduct}">Add product</a>
+                    </li>
                 </ul>
 
                 <form th:action="@{/search}" method="post" class="d-flex">
@@ -55,11 +61,13 @@
                         </a>
                     </li>
                     <li class="nav-item" style="font-size: 1.5rem;">
-                        <p style="font-size: small; color: blue; margin-left: 6px; margin-bottom: 6px; position: absolute ">[[${cartItems}]]</p>
                         <a th:href="@{/shoppingCart}"><i class="bi bi-cart4"></i></a>
                         <span class='badge badge-warning' id='lblCartCount'>[[${cartCount}]]</span>
                     </li>
                 </ul>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout">
+                </form>
             </div>
         </div>
     </nav>
