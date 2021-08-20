@@ -33,6 +33,7 @@
     <div class="card mb-5" th:each="cart : ${user.carts}">
         <div class="card-header">
             Order #[[${cart.id}]]
+            <p class="listAlignRight">[[${cart.date}]]</p>
         </div>
         <div class="card-body">
             <ul class="list-group" th:each="product : ${cart.productsHistory}">

@@ -16,6 +16,7 @@ import javax.persistence.EntityManager;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -143,6 +144,8 @@ public class HomeController {
         cart.setTax(tax);
         cart.setTotal(total);
         cart.setShipping(shipping);
+        LocalDate date = LocalDate.now();
+        cart.setDate(date);
         cartRepository.save(cart);
         for (Product product : products){
             CartsAndProducts order = new CartsAndProducts();
@@ -167,11 +170,12 @@ public class HomeController {
         message.setTo(user.getEmail());
         message.setSubject("Samazon Order Confirmation");
 
-        String emailMessage = "";
+        String emailMessage = "Products\n ===========================================================================\n\n";
         for (Product product : products){
-            emailMessage += product.getName() + ": " + product.getPrice() + "\n";
+            emailMessage += String.format("%-120s $%.2f\n", product.getName(), product.getPrice()).replace("  ", "..");
         }
-        emailMessage += "Subtotal: " + subtotal + "\nTax: " + tax + "\nTotal: " + total;
+        emailMessage += "===========================================================================\n\n";
+        emailMessage += String.format("%120s: $%.2f \n%120s: $%.2f \n%120s: $%.2f", "Subtotal", subtotal, "Tax", tax, "Total", total);
         message.setText(emailMessage);
 
         try {

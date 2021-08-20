@@ -3,6 +3,8 @@ package com.example.demo;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +18,7 @@ public class Cart {
 
 //    @NotNull
 //    @NotEmpty
-    private String date;
+    private LocalDate date;
 
 //    @NotNull
     private double total;
@@ -46,11 +48,11 @@ public class Cart {
         this.id = id;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
