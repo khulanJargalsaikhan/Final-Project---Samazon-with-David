@@ -43,6 +43,17 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         userRepository.save(user);
         roleRepository.save(userRole);
 
+        User bart = new User("bart", "bart", true);
+        Role bartRole = new Role("bart", "ROLE_USER");
+        bart.setAddress("1234 xxxxx st");
+        bart.setEmail("david.techarmour@gmail.com");
+        bart.setState("VA");
+        bart.setCity("Fairfax");
+        bart.setPhone("111-111-1111");
+
+        userRepository.save(bart);
+        roleRepository.save(bartRole);
+
         Category birthday = new Category();
         birthday.setName("Birthday");
         Set<Product> birthdayProducts = new HashSet<>();

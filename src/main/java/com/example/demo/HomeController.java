@@ -170,11 +170,11 @@ public class HomeController {
         message.setTo(user.getEmail());
         message.setSubject("Samazon Order Confirmation");
 
-        String emailMessage = "Products\n ===========================================================================\n\n";
+        String emailMessage = "Products \n===========================================================================\n\n";
         for (Product product : products){
             emailMessage += String.format("%-120s $%.2f\n", product.getName(), product.getPrice()).replace("  ", "..");
         }
-        emailMessage += "===========================================================================\n\n";
+        emailMessage += "\n===========================================================================\n";
         emailMessage += String.format("%120s: $%.2f \n%120s: $%.2f \n%120s: $%.2f", "Subtotal", subtotal, "Tax", tax, "Total", total);
         message.setText(emailMessage);
 
