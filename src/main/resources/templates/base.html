@@ -39,9 +39,6 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/flowers}">Flowers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/login}">Login</a>
-                    </li>
                     <li sec:authorize="hasRole('ADMIN')" class="nav-item">
                         <a class="nav-link" th:href="@{/addProduct}">Add product</a>
                     </li>
@@ -52,7 +49,7 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
-                <ul class="navbar-nav" style="padding-left: 2rem">
+                <ul class="navbar-nav secondaryNav">
                     <li class="nav-item" style="font-size: small;">
                         <a class="nav-link" th:href="@{/userInfo}">
                             <p>Hello, <span sec:authentication="name"></span><br>
@@ -60,14 +57,13 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item" style="font-size: 1.5rem;">
+                    <li class="nav-item cartNav">
                         <a th:href="@{/shoppingCart}"><i class="bi bi-cart4"></i></a>
                         <span class='badge badge-warning' id='lblCartCount'>[[${cartCount}]]</span>
                     </li>
                 </ul>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Logout">
-                </form>
+                <a sec:authorize="!isAuthenticated()" class="btn btn-primary btn-sm btn-warning" th:href="@{/login}" role="button">Login</a>
+                <a sec:authorize="isAuthenticated()" class="btn btn-primary btn-sm btn-warning" th:href="@{/logout}" role="button">Logout</a>
             </div>
         </div>
     </nav>

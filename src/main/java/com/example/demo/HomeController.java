@@ -101,7 +101,10 @@ public class HomeController {
 
 
     @RequestMapping("/addToCart/{id}")
-    public String addToCart(@PathVariable("id") long id, Model model){
+    public String addToCart(@PathVariable("id") long id, Model model, Principal principal){
+        if (principal == null){
+            return "redirect:/login";
+        }
         products.add(productRepository.findById(id).get());
         subtotal += productRepository.findById(id).get().getPrice();
         return "redirect:/shoppingCart";
@@ -201,24 +204,19 @@ public class HomeController {
 
     @RequestMapping("/login")
     public String login(Model model){
+        tax = 0;
+        subtotal = 0;
+        total = 0;
+        shipping = 0;
+        products.clear();
         model.addAttribute("cartCount", products.size());
         return "login";
     }
 
     @RequestMapping("/logout")
     public String logout(Model model) {
-        model.addAttribute("cartCount", products.size());
-        tax = 0;
-        subtotal = 0;
-        total = 0;
-        shipping = 0;
-        products.clear();
         return "redirect:/login?logout=true";
     }
-
-
-
-
 
     @GetMapping("/search")
     public String searchProduct(Model model){
@@ -293,6 +291,13 @@ public class HomeController {
     public String deleteProduct(@PathVariable("id") long id){
         productRepository.deleteById(id);
         return "redirect:/flowers";
+    }
+
+    @RequestMapping("/productDetails/{id}")
+    public String productDetails(@PathVariable("id") long id, Model model){
+        model.addAttribute("cartCount", products.size());
+        model.addAttribute("product", productRepository.findById(id).get());
+        return "productdetails";
     }
 
 }

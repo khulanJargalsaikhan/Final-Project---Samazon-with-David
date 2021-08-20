@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@300&family=Sacramento&display=swap" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet" >
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-9" align="center">
+            <h3 class="display-3">Product Details</h3>
+            <div class="card mb-3" style="max-width: 1000px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img th:src="${product.photo}" class="img-fluid rounded-start" alt="..." width="auto" height="auto">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${product.name}"></h5>
+                            <p class="card-text ">$[[${#numbers.formatDecimal(product.price, 1, 2, 'POINT')}]]</p>
+                            <p class="card-text" th:text="${product.description}"></p>
+                            <a th:href="@{/addToCart/{id}(id=${product.id})}" class="btn btn-primary">Add To Cart</a>
+                            <br>
+                            <span sec:authorize="hasRole('ADMIN')" style="margin-top:15px;">
+                                <a th:href="@{/updateProduct/{id}(id=${product.id})}" class="card-link cardLink">Update</a>
+                                <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="card-link">Delete</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

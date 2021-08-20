@@ -70,3 +70,15 @@ p {
     margin-left: -10px;
 }
 
+.secondaryNav{
+    padding-left: 2rem;
+    padding-top: 15px;
+}
+
+.cartNav{
+    font-size: 1.5rem;
+    padding-top: 8px;
+    padding-left:15px;
+    padding-right:15px;
+}
+

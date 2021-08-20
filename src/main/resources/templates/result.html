@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Search Results</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
@@ -26,11 +26,12 @@
         <div th:each="result : ${results}" class="card-deck">
             <div class="card">
                 <img th:src="${result.photo}" width="200" height="200" class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
+                <div class="card-body" align="center">
                     <h5 class="card-title">[[${result.name}]] </h5>
-                    <p class="card-text">$[[${result.price}]]</p>
-                    <p class="card-text">[[${result.description}]]</p>
-                    <a th:href="@{/addToCart/{id}(id=${result.id})}" class="btn btn-primary">Add to Cart</a>
+                    <p class="card-text">$[[${#numbers.formatDecimal(result.price, 1, 2, 'POINT')}]]</p>
+                    <a th:href="@{/addToCart/{id}(id=${result.id})}" class="btn btn-primary btn-sm">Add to Cart</a>
+                    <a th:href="@{/productDetails/{id}(id=${result.id})}" class="btn btn-primary btn-sm">View Details</a>
+                    <br>
                     <span sec:authorize="hasRole('ADMIN')">
                         <a th:href="@{/updateProduct/{id}(id=${result.id})}" class="card-link cardLink">Update</a>
                         <a th:href="@{/deleteProduct/{id}(id=${result.id})}" class="card-link">Delete</a>
