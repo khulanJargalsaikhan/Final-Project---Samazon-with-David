@@ -166,9 +166,9 @@ public class HomeController {
         userRepository.save(user);
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("samazon12345@gmail.com");
+        message.setFrom("arifloralstudio@gmail.com");
         message.setTo(user.getEmail());
-        message.setSubject("Samazon Order Confirmation");
+        message.setSubject("Ari Floral Studio ~ Order Confirmation");
 
         String emailMessage = "Products: \n------------------------------------------\n\n";
         for (Product product : products){
