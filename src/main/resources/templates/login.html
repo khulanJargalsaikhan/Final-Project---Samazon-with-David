@@ -19,6 +19,9 @@
 
 
 <div class="container">
+
+    <p th:if="${message}">[[${message}]]</p>
+
     <h2 class="pageTitle">Login</h2>
 
     <div class="row justify-content-center">
@@ -34,7 +37,10 @@
                     <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
                     <div id="passwordHelp" class="form-text" th:if="${param.error}">Invalid Username or Password</div>
                 </div>
-                <button type="submit" class="btn btn-primary buttonPadding">Submit</button>
+                <button type="submit" class="btn btn-primary">Sign-In</button>
+
+                <hr>
+                <a th:href="@{/register}" class="btn btn-warning btn-sm">Create your account</a>
             </form>
         </div>
     </div>

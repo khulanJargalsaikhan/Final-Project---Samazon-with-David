@@ -1,5 +1,10 @@
 # Final Project - Samazon Shopping Site
 
+Group members:
+- David Kim
+- Khulan Jargalsaikhan
+
+
 Sam has been saving all his money and now wants to create an online store. And you're going to help him.
 
 Your job is to find at least twenty products for him to sell. Then create a database for those products. Next, create a web application to serve as a shopping cart for the online store.
