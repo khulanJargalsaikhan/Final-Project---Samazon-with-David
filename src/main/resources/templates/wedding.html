@@ -25,7 +25,7 @@
         <h3 class="display-3">Wedding Flowers</h3>
     </div>
 
-    <div  class="row row-cols-2 row-cols-md-3 g-4">
+    <div  class="row row-cols-lg-3 row-cols-sm-1 row-cols-md-2 g-4">
         <div th:each="product : ${category.products}" class="card-deck">
             <div class="card" align="center">
                 <img th:src="${product.photo}" width="200" height="200" class="card-img-top" src="..." alt="Card image cap">
