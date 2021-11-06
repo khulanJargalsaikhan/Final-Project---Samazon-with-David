@@ -1,4 +1,4 @@
-# Final Project - Samazon Shopping Site
+# Final Project - Flora Studio - online store
 
 Group members:
 - David Kim
