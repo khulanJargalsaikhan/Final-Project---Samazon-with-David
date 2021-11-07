@@ -268,8 +268,8 @@ public class HomeController {
 
 
 
-    @RequestMapping("/userInfo")
-    public String userInfomration(Model model, Principal principal){
+    @GetMapping("/userInfo")
+    public String userInformation(Model model, Principal principal){
         model.addAttribute("cartCount", products.size());
         if (principal == null){
             return "redirect:/login";
