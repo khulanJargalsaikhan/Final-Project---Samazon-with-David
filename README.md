@@ -1,4 +1,4 @@
-# Final Project - Samazon Shopping Site
+# Final Project - Flora Studio - online store
 
 Group members:
 - David Kim
@@ -30,3 +30,5 @@ So, you should have the following pages:
 - User's name and number of items in their cart should appear on every page. Optionally you can list the total value of their cart.
 - Sites should charge shipping on every order but offer free shipping for orders > $50.00.
 - Search form in the navbar which allows the user to search for items in the store or their order history. You can decide how you want to present the results. User should be able to search for products containing any or all the words entered.
+
+https://polar-reef-71114.herokuapp.com
