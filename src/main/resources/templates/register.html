@@ -19,24 +19,24 @@
             <div class="col mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" th:field="*{username}" aria-describedby="usernameHelp">
-                <div id="usernameHelp" class="form-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                <div style="color: red" id="usernameHelp" class="form-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
             </div>
             <div class="col mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" step="0.01" class="form-control" id="password" th:field="*{password}" aria-describedby="passwordHelp">
-                <div id="c" class="form-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                <span style="color: red" id="c" class="form-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
             </div>
         </div>
         <div class="row g-5">
             <div class="col mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" th:field="*{email}" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                <div style="color: red" id="emailHelp" class="form-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
             </div>
             <div class="col mb-3">
                 <label for="phone" class="form-label">Phone</label>
                 <input type="text" step="0.01" class="form-control" id="phone" th:field="*{phone}" aria-describedby="phoneHelp">
-                <div id="phoneHelp" class="form-text" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+                <div style="color: red" id="phoneHelp" class="form-text" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
             </div>
         </div>
         <div class="row">
@@ -44,19 +44,19 @@
                 <label for="address" class="form-label">Address</label>
                 <textarea class="form-control" id="address" rows="3" th:field="*{address}"
                           aria-describedby="addressHelp"></textarea>
-                <div id="addressHelp" class="form-text" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+                <div style="color: red" id="addressHelp" class="form-text" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
             </div>
         </div>
         <div class="row g-5">
             <div class="col mb-3">
                 <label for="city" class="form-label">City</label>
                 <input type="text" class="form-control" id="city" th:field="*{city}" aria-describedby="cityHelp">
-                <div id="cityHelp" class="form-text" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+                <div style="color: red" id="cityHelp" class="form-text" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
             </div>
             <div class="col mb-3">
                 <label for="state" class="form-label">State</label>
                 <input type="text" step="0.01" class="form-control" id="state" th:field="*{state}" aria-describedby="stateHelp">
-                <div id="stateHelp" class="form-text" th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></div>
+                <div style="color: red" id="stateHelp" class="form-text" th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary buttonPadding">Submit</button>

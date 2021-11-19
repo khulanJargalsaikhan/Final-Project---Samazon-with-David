@@ -28,6 +28,11 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     public void run(String...args){
         User admin = new User("admin", "admin", true);
         Role adminRole = new Role("admin", "ROLE_ADMIN");
+        admin.setAddress("1234 xxxxx st");
+        admin.setEmail("onagraa@gmail.com");
+        admin.setState("VA");
+        admin.setCity("Arlington");
+        admin.setPhone("555-555-5555");
 
 
         User user = new User("user", "user", true);
